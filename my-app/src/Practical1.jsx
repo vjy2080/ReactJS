@@ -78,11 +78,12 @@ const SecondIntro = () => {
     </table>
 
     <div class="mt-10">
-    <img src="https://source.unsplash.com/featured/600x501" alt="" />
+    <img src="https://assets.codepen.io/2332100/large-landscape-2048x1536.jpg" alt="natural1" />
     </div>
     <div class="mt-10">
       <h2>Image with local "src" not link here, need to confirm with Jay Sir.</h2>
-    <img src="nature.webp" alt="" />
+    <img src="./natural.jpg" alt="natural2" />
+    <img src="natural.jpg" alt="natural3" />
     </div>
 
 
