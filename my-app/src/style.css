@@ -1,8 +1,11 @@
 h1{
-    color: red;
-    background-color: yellow;
+    color: rgb(46, 48, 186);
+    background-color: rgb(227, 227, 139);
 }
 h2{
-    color: yellow;
-    background-color: red;
+    color: rgb(151, 206, 228);
+    background-color: rgb(90, 13, 98);
+}
+.mt-10{
+    margin-top: 10px;
 }
