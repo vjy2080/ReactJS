@@ -1,12 +1,6 @@
 import ReactDOM from 'react-dom/client';
-import FirstIntro from './FirstIntro.jsx'
-
-
-const Something = () => {
-    return "Called" 
-};
-
-export default Something;
+import FirstIntro from './01_Intro.jsx'
+import SecondIntro from './Practical1.jsx'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Something/>);
+root.render (<FirstIntro/>);
