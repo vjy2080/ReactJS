@@ -1,9 +1,12 @@
 import ReactDOM from 'react-dom/client';
-import ReactDOM from 'react-dom/client';
-const Somthing =() => {
-    return "This is first Data"
+import FirstIntro from './FirstIntro.jsx'
+
+
+const Something = () => {
+    return "Called" 
 };
 
+export default Something;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Somthing/>);
+root.render(<Something/>);
