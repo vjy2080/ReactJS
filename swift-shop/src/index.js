@@ -1,19 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './Component/Header.jsx';
+import Slider from './Component/Slider.jsx';
 import MainContent from './Component/MainContent.jsx';
-import vjy from "vjy()";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const vjy = () => {
-    return (
-        <div>
-         test   
-        </div>
-    );
-};
-
-export default vjy;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render (<><vjy/><Header/><MainContent/></>);
+root.render (<><Header/><Slider/><MainContent/></>);
