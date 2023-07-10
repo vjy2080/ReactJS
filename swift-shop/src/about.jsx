@@ -4,12 +4,11 @@ import Slider from './Component/Slider.jsx';
 import MainContent from './Component/MainContent.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import React from 'react';
 
-const about = () => {
+const About = () => {
     return (
         <>
-            <><Header /><Slider /><MainContent /></>
+            <Header />
 
             <div class="container bg-primary-subtle rounded-5 my-4">
                 <div class="row">
@@ -37,4 +36,4 @@ const about = () => {
     );
 };
 
-export default about;
+export default About;

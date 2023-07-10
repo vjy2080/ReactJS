@@ -1,14 +1,18 @@
+import React from 'react';
 import Header from './Component/Header.jsx';
 import Slider from './Component/Slider.jsx';
 import MainContent from './Component/MainContent.jsx';
+import About from './about.jsx';
+
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import React from 'react';
-
-const home = () => {
+const Home = () => {
     return (
-        <><Header/><Slider/><MainContent/></>
+        <><Header/><Slider/><MainContent/>
+        <About/></>
     );
 };
 
-export default home;
+export default Home;
