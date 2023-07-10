@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import router from './router.jsx';
-
+// import Home from './home'
+import Router from './router.jsx'
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render (<router/>);
+// root.render (<><Home/></>);
+root.render (<><Router/></>);
