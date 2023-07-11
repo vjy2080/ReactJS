@@ -1,10 +1,7 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import ReactNav  from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { nav } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 
 
@@ -14,7 +11,7 @@ function Header() {
 
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">Swift-Shop</Navbar.Brand>
+        <Navbar.Brand href="/">Swift-Shop</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -22,11 +19,9 @@ function Header() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-
-
-            <Nav.Link to="/">Home</Nav.Link>
-            <Nav.Link to="/about">About</Nav.Link>
-            <Nav.Link to="/contact">Contact</Nav.Link>
+           <Nav.Link> <Link className='text-decoration-none text-dark' to="/">Home</Link> </Nav.Link>
+           <Nav.Link> <Link className='text-decoration-none text-dark' to="/about">About</Link> </Nav.Link>
+           <Nav.Link> <Link className='text-decoration-none text-dark' to="/contact">Contact</Link> </Nav.Link>
           </Nav>
 
         </Navbar.Collapse>
