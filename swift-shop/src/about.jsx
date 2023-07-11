@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const About = () => {
     return (
         <>
-            <Header />
+            {/* <Header /> */}
 
             <div class="container bg-primary-subtle rounded-5 my-4">
                 <div class="row">
