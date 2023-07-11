@@ -12,8 +12,8 @@ const Home = () => {
     return (
         <>
         <Header/>
-        {/* <Slider/><MainContent/> */}
-        <About/>
+        <Slider/>
+        <MainContent/>
         </>
     );
 };

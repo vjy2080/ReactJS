@@ -1,14 +1,10 @@
 import React from 'react';
-import Header from './Component/Header.jsx';
-import Slider from './Component/Slider.jsx';
-import MainContent from './Component/MainContent.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const About = () => {
     return (
         <>
-            {/* <Header /> */}
 
             <div class="container bg-primary-subtle rounded-5 my-4">
                 <div class="row">
