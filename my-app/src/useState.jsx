@@ -6,10 +6,6 @@ export default function Counter() {
   function increment() {
     setAge(a => a + 1);
   }
-  
-  function increment() {
-    setAge(a => a + 1);
-  }
 
   return (
     <>
