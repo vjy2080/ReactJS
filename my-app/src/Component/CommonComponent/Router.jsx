@@ -6,23 +6,34 @@ import{createHashRouter} from 'react-router-dom'
 
 
 
-const router = createHashRouter([
-    {
-      path: "/",
-      element: <Home/> ,
-    },
-    {
-      path: "/About",
-      element: <About/> ,
-    },
-    {
-      path: "/Contact",
-      element: <Contact/> ,
-    },
-  ]);
+
+const Router = () => {
+  return (
+    <div>
+      Router
+    </div>
+  );
+};
+
+export default Router;
+
+// const router = createHashRouter([
+//     {
+//       path: "/",
+//       element: <Home/> ,
+//     },
+//     {
+//       path: "/About",
+//       element: <About/> ,
+//     },
+//     {
+//       path: "/Contact",
+//       element: <Contact/> ,
+//     },
+//   ]);
 
         
-export default router;
+// export default router;
         
         
         
