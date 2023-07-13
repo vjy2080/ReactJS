@@ -1,0 +1,9 @@
+.img {
+  background-image: url(./Components/hanuman.jpg);
+  
+  height: 300px;
+  width: 200px;
+  background-size: contain;
+
+}
+
