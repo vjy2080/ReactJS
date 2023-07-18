@@ -1,8 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { Nav } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 
 
@@ -19,9 +18,16 @@ function Header() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
+           {/* <Nav.Link className='text-decoration-none text-dark' to="/">Home </Nav.Link> */}
+           {/* <Nav.Link className='text-decoration-none text-dark' to="/about">About </Nav.Link> */}
+           {/* <Nav.Link className='text-decoration-none text-dark' to="/contact">Contact </Nav.Link> */}
+          
+          
            <Nav.Link> <Link className='text-decoration-none text-dark' to="/">Home</Link> </Nav.Link>
            <Nav.Link> <Link className='text-decoration-none text-dark' to="/about">About</Link> </Nav.Link>
            <Nav.Link> <Link className='text-decoration-none text-dark' to="/contact">Contact</Link> </Nav.Link>
+        
+        
           </Nav>
 
         </Navbar.Collapse>

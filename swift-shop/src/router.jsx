@@ -1,4 +1,3 @@
-import Header from './Component/Header.jsx';
 import Home from './home.jsx';
 import About from './about.jsx';
 import Contact from './contact.jsx';

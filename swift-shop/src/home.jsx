@@ -1,8 +1,6 @@
 import React from 'react';
-import Header from './Component/Header.jsx';
 import Slider from './Component/Slider.jsx';
 import MainContent from './Component/MainContent.jsx';
-import About from './about.jsx';
 
 
 

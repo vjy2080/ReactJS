@@ -1,6 +1,5 @@
 import {Card, Col, Row, Button} from 'react-bootstrap';
 import Container from 'react-bootstrap/esm/Container';
-// import Container from 'react-bootstrap/Container';
 
 function GridExample() {
 
