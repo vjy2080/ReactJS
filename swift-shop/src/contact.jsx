@@ -51,6 +51,9 @@ const contact = () => {
         </div>
         <div className="input-box message-box"></div>
         <div>
+          <div>
+            <textarea name="text" id="textarea" cols="80" rows="6" placeholder='Type your massage or query here.' className='rounded border border-primary p-2'></textarea>
+          </div>
           <button className="btn btn-primary">Send Now</button>
         </div>
       </form>

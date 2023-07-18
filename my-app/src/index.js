@@ -12,8 +12,8 @@ import { RouterProvider } from 'react-router-dom';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render (<><NavBar/></>);
+root.render (<><NavBar/></>);
 // root.render(<><RouterProvider router={Router} /></>);
 // root.render (<><Router/></>);
-root.render (<><useState/></>);
+// root.render (<><useState/></>);
 

@@ -1,6 +1,4 @@
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import {Card, Col, Row, Button} from 'react-bootstrap';
 import Container from 'react-bootstrap/esm/Container';
 // import Container from 'react-bootstrap/Container';
 
@@ -32,12 +30,13 @@ function GridExample() {
               <Card>
                 <Card.Img variant="top" src={imageUrl} />
                 <Card.Body>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>Shop-Item {idx + 1}</Card.Title>
                   <Card.Text>
-                    This is a longer card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
+                 Decscription of {idx + 1},<br/> Found more detail of {idx + 1} click below link.  
                   </Card.Text>
+                  <div className="btn  w-100">
+                  <Button variant="primary"><a href="#" className='text-decoration-none text-light'>Click Here</a></Button>{' '}
+                  </div>
                 </Card.Body>
               </Card>
             </Col>
@@ -48,29 +47,5 @@ function GridExample() {
   }
   
 
-// ====================================
-
-//   return (
-//     <Container>
-//     <Row xs={1} md={4} className="g-4">
-//       {imageUrls.from({ length: 12 }).map((imageUrl, idx) => (
-//         <Col key={idx}>
-//           <Card>
-//             <Card.Img variant="top" src={imageUrl} />
-//             <Card.Body>
-//               <Card.Title>Card title</Card.Title>
-//               <Card.Text>
-//                 This is a longer card with supporting text below as a natural
-//                 lead-in to additional content. This content is a little bit
-//                 longer.
-//               </Card.Text>
-//             </Card.Body>
-//           </Card>
-//         </Col>
-//       ))}
-//     </Row>
-//   </Container>
-//   );
-// }
 
 export default GridExample;
