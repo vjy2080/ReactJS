@@ -7,3 +7,6 @@ step 5) import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 	import "@fortawesome/fontawesome-free/css/all.min.css";
 step 6) npm install react-router-dom localforage match-sorter sort-by  (https://reactrouter.com/en/main/start/tutorial)
 step 7) npm start
+
+
+https://newsapi.org/v2/everything?q=tesla&from=2023-06-19&sortBy=publishedAt&apiKey=c9aa8a5802bb4e1998ce842b51b2905a
