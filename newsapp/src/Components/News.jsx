@@ -207,26 +207,27 @@ export class News extends Component {
   ]
   constructor(){
     super();
-    console.log("constructor news.jsx");
     this.state = {
         articles: this.articles,
         loading: false
     }
   }
+
+componentDidMount(){
+  
+}
+
   render() {
     return (
       <div className='container my-3'>
         <h2 className='text-center my-3'>News-App Top Headlines</h2>
-       <div className="row my-3">
-        <div className="col md-3">
-        <NewsItem title='my title' description='my description' imageUrl="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://d1i4t8bqe7zgj6.cloudfront.net/07-17-2023/t_6c90d1ea6fd74fd3a4adfe4b1cdbd49b_name_7B2XWXC6FRI5RIG6YZLEQOSBBQ.jpg&w=1440"/>
+        <div className="row my-3">
+        {this.state.articles.map((element)=>{
+         return <div className="col md-3" key={element.url}>
+        <NewsItem  title={element.title.slice(0, 30)} description={element.title.slice(0, 80)} imageUrl={element.urlToImage} newsUrl={element.url}/>
         </div>
-        <div className="col md-3">
-        <NewsItem title='my title' description='my description'/>
-        </div>
-        <div className="col md-3">
-        <NewsItem title='my title' description='my description'/>
-        </div>
+        })}
+       
        </div>
 
       </div>
