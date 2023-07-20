@@ -8,8 +8,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <NavBar/>
-        <News/>
+        <NavBar />
+        <News pageSize={6} />
       </div>
     );
   }

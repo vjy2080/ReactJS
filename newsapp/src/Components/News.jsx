@@ -1,5 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import NewsItem from "./NewsItem";
+import Spinner from "./Spinner";
 
 export class News extends Component {
   constructor() {
@@ -12,14 +13,15 @@ export class News extends Component {
   }
 
   async componentDidMount() {
-    let url =
-      "https://newsapi.org/v2/top-headlines?country=in&apiKey=c9aa8a5802bb4e1998ce842b51b2905a&page=1&pageSize=20";
+    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=c9aa8a5802bb4e1998ce842b51b2905a&page=1&pageSize=${this.props.pageSize}`;
+    this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
+      loading: false,
     });
   }
 
@@ -28,28 +30,36 @@ export class News extends Component {
 
     let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=c9aa8a5802bb4e1998ce842b51b2905a&page=${
       this.state.page - 1
-    }&pageSize=20`;
+    }&pageSize=${this.props.pageSize}`;
+    this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
     this.setState({
       page: this.state.page - 1,
       articles: parsedData.articles,
+      loading: false,
     });
   };
   handleNextClick = async () => {
     console.log("next");
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
+    if (
+      !(
+        this.state.page + 1 >
+        Math.ceil(this.state.totalResults / this.props.pageSize)
+      )
+    ) {
     } else {
       let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=c9aa8a5802bb4e1998ce842b51b2905a&page=${
         this.state.page + 1
-      }&pageSize=20`;
+      }&pageSize=${this.props.pageSize}`;
+      this.setState({ loading: true });
       let data = await fetch(url);
       let parsedData = await data.json();
-      console.log(parsedData);
       this.setState({
         page: this.state.page + 1,
         articles: parsedData.articles,
+        loading: false,
       });
     }
   };
@@ -58,6 +68,7 @@ export class News extends Component {
     return (
       <div className="container my-3">
         <h2 className="text-center my-3">News-App Top Headlines</h2>
+        {!this.state.loading && this.state.loading && <Spinner />}
         <div className="row my-3">
           {this.state.articles.map((element) => {
             return (
@@ -83,7 +94,10 @@ export class News extends Component {
               &#11164; Previous
             </button>
             <button
-              // disabled={this.state.page<=1}
+              disabled={
+                this.state.page + 1 >
+                Math.ceil(this.state.totalResults / this.props.pageSize)
+              }
               type="button"
               onClick={this.handleNextClick}
               className="btn btn-info"
