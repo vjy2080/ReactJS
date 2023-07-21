@@ -21,7 +21,7 @@ export class News extends Component {
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
-      loading: false,
+      loading: true,
     });
   }
 
@@ -38,7 +38,7 @@ export class News extends Component {
     this.setState({
       page: this.state.page - 1,
       articles: parsedData.articles,
-      loading: false,
+      loading: true,
     });
   };
   handleNextClick = async () => {
@@ -57,7 +57,7 @@ export class News extends Component {
       this.setState({
         page: this.state.page + 1,
         articles: parsedData.articles,
-        loading: false,
+        loading: true,
       });
     }
   };
@@ -68,7 +68,7 @@ export class News extends Component {
         <h2 className="text-center my-3">
           <u>Top Headlines</u> from <b>Get-Daily-News</b>
         </h2>
-        {!this.state.loading && this.state.loading && <Spinner />}
+        {!this.state.loading && this.state.loading <Spinner />}
         <div className="row my-3">
           {this.state.articles.map((element) => {
             return (
