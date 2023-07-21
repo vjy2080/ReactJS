@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Logo from "../logo.jpg";
+import { Link } from "react-router-dom";
+
 export class NavBar extends Component {
   render() {
     return (
@@ -33,13 +35,38 @@ export class NavBar extends Component {
                   </a>
                   <ul className="dropdown-menu">
                     <li>
-                      <a className="dropdown-item" href="#">
-                        Action
+                      <a className="dropdown-item" href="business">
+                        Business
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#">
-                        Another action
+                      <a className="dropdown-item" href="entertainment">
+                        Entertainment
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="general">
+                        General
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="health">
+                        Health
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="science">
+                        Science
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="sports">
+                        Sports
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="technology">
+                        Technology
                       </a>
                     </li>
                   </ul>
