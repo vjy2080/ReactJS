@@ -21,7 +21,7 @@ export class News extends Component {
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
-      loading: true,
+      loading: false,
     });
   }
 
@@ -38,7 +38,7 @@ export class News extends Component {
     this.setState({
       page: this.state.page - 1,
       articles: parsedData.articles,
-      loading: true,
+      loading: false,
     });
   };
   handleNextClick = async () => {
@@ -57,7 +57,7 @@ export class News extends Component {
       this.setState({
         page: this.state.page + 1,
         articles: parsedData.articles,
-        loading: true,
+        loading: false,
       });
     }
   };
@@ -68,22 +68,23 @@ export class News extends Component {
         <h2 className="text-center my-3">
           <u>Top Headlines</u> from <b>Get-Daily-News</b>
         </h2>
-        {!this.state.loading && this.state.loading <Spinner />}
+        {this.state.loading && <Spinner />}
         <div className="row my-3">
-          {this.state.articles.map((element) => {
-            return (
-              <div className="col md-3" key={element.url}>
-                <NewsItem
-                  title={element.title ? element.title.slice(0, 50) : ""}
-                  description={
-                    element.description ? element.title.slice(0, 80) : ""
-                  }
-                  imageUrl={element.urlToImage}
-                  newsUrl={element.url}
-                />
-              </div>
-            );
-          })}
+          {!this.state.loading &&
+            this.state.articles.map((element) => {
+              return (
+                <div className="col md-3" key={element.url}>
+                  <NewsItem
+                    title={element.title ? element.title.slice(0, 50) : ""}
+                    description={
+                      element.description ? element.title.slice(0, 80) : ""
+                    }
+                    imageUrl={element.urlToImage}
+                    newsUrl={element.url}
+                  />
+                </div>
+              );
+            })}
           <div className="container d-flex justify-content-between">
             <button
               disabled={this.state.page <= 1}
