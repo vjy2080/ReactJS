@@ -1,12 +1,34 @@
-step 1) npx create-react-app my-app
-step 2) cd my-app
-step 3) npm i mdb-react-ui-kit (https://mdbootstrap.com/docs/react/getting-started/installation/)
-step 4) npm i @fortawesome/fontawesome-free
+
+step 1) 
+npx create-react-app my-app
+----------------------------------
+
+step 2)
+cd my-app
+------------------------------------
+
+step 3)
+npm i mdb-react-ui-kit (https://mdbootstrap.com/docs/react/getting-started/installation/)
+-------------------------------------------
+
+step 4)
+npm i @fortawesome/fontawesome-free
+-------------------------------------------
 inside src/index.js
-step 5) import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-	import "@fortawesome/fontawesome-free/css/all.min.css";
-step 6) npm install react-router-dom localforage match-sorter sort-by  (https://reactrouter.com/en/main/start/tutorial)
-step 7) npm start
 
+step 5)
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+-------------------------------------------
 
+step 6)
+npm install react-router-dom localforage match-sorter sort-by  (https://reactrouter.com/en/main/start/tutorial)
+-------------------------------------------
+
+step 7)
+npm start
+-------------------------------------------
+
+NewsApi link
 https://newsapi.org/v2/everything?q=tesla&from=2023-06-19&sortBy=publishedAt&apiKey=c9aa8a5802bb4e1998ce842b51b2905a
+-------------------------------------------
