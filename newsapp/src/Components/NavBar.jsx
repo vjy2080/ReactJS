@@ -9,73 +9,82 @@ export class NavBar extends Component {
         <nav className="navbar navbar-expand-lg bg-dark ">
           <div className="container-fluid">
             <img src={Logo} alt="logo" className="rounded-5" />
-            <a className="navbar-brand text-white mx-3" href="#">
+            <Link className="navbar-brand text-white mx-3" to="/">
               Get-Daily-News
-            </a>
+            </Link>
             <div className="collapse navbar-collapse" id="navbarText">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link text-white active"
                     aria-current="page"
-                    href="#"
+                    to="/"
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle text-white"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
+                <li>
+                  <Link
+                    className="nav-link text-white active"
+                    aria-current="page"
+                    to="/business"
                   >
-                    Category
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="business">
-                        Business
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="entertainment">
-                        Entertainment
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="general">
-                        General
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="health">
-                        Health
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="science">
-                        Science
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="sports">
-                        Sports
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="technology">
-                        Technology
-                      </a>
-                    </li>
-                  </ul>
+                    Business
+                  </Link>
                 </li>
-
-                <li className="nav-item">
-                  <a className="nav-link text-white" href="#">
-                    About-Us
-                  </a>
+                <li>
+                  <Link
+                    className="nav-link text-white active"
+                    aria-current="page"
+                    to="/entertainment"
+                  >
+                    Entertainment
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="nav-link text-white active"
+                    aria-current="page"
+                    to="/general"
+                  >
+                    General
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="nav-link text-white active"
+                    aria-current="page"
+                    to="/health"
+                  >
+                    Health
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="nav-link text-white active"
+                    aria-current="page"
+                    to="/science"
+                  >
+                    Science
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="nav-link text-white active"
+                    aria-current="page"
+                    to="/sports"
+                  >
+                    Sports
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="nav-link text-white active"
+                    aria-current="page"
+                    to="/technology"
+                  >
+                    Technology
+                  </Link>
                 </li>
               </ul>
             </div>
