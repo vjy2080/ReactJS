@@ -4,6 +4,7 @@ import { getImageUrl } from './utils.js';
 
 class ListsInClassCompo extends Component {
     render() {
+        
         // const people = [
         //     'Creola Katherine Johnson: mathematician',
         //     'Mario Jose Molina-Pasquel Henriquez: chemist',

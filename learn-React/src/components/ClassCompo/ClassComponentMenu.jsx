@@ -13,6 +13,10 @@ class ClassComponentMenu extends Component {
                     <li><Link to="lifecycleinclassexample">LifeCycle in Class Compo LoaderExample</Link></li>
                     <li><Link to="conditionalrenderclassexample">Conditional Render in Class Compo</Link></li>
                     <li><Link to="listinclasscompo">Lists in Class Compo</Link></li>
+                    <li><Link to="restvsspread">RestSpread Op in Class Compo</Link></li>
+                    <li><Link to="controlledcompo">Controlled Compo in Class Compo</Link></li>
+                    <li><Link to="uncontrolledcompo">Uncontrolled Compo in Class Compo</Link></li>
+                    <li><Link to="composistionvsinheritance">Composition vs Inheritance in Class Compo</Link></li>
                 </ol>
                 
                 <Outlet></Outlet>

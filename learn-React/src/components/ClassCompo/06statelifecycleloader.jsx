@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import LoaderCompo from './07LoaderCompo.jsx';
+import LoaderCompo from './07LoaderCompo.jsx';
 
 class Statelifecycle extends Component {
     constructor(props) {

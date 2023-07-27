@@ -45,15 +45,6 @@ export class NavBar extends Component {
                   <Link
                     className="nav-link text-white active"
                     aria-current="page"
-                    to="/general"
-                  >
-                    General
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="nav-link text-white active"
-                    aria-current="page"
                     to="/health"
                   >
                     Health
