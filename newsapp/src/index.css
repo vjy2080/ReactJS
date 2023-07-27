@@ -1,0 +1,12 @@
+.nav-link {
+  border: 2px solid red;
+  border-radius: 15px;
+  padding: 2px 0;
+  margin: 2px;
+  background-color: yellow;
+}
+
+.nav-link:hover {
+  border-color: blue;
+  background-color: skyblue;
+}

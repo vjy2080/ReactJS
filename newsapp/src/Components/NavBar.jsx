@@ -16,7 +16,7 @@ export class NavBar extends Component {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <Link
-                    className="nav-link text-white active"
+                    className="nav-link"
                     aria-current="page"
                     to="/"
                   >
@@ -25,7 +25,7 @@ export class NavBar extends Component {
                 </li>
                 <li>
                   <Link
-                    className="nav-link text-white active"
+                    className="nav-link"
                     aria-current="page"
                     to="/business"
                   >
@@ -34,7 +34,7 @@ export class NavBar extends Component {
                 </li>
                 <li>
                   <Link
-                    className="nav-link text-white active"
+                    className="nav-link"
                     aria-current="page"
                     to="/entertainment"
                   >
@@ -43,7 +43,7 @@ export class NavBar extends Component {
                 </li>
                 <li>
                   <Link
-                    className="nav-link text-white active"
+                    className="nav-link"
                     aria-current="page"
                     to="/health"
                   >
@@ -52,7 +52,7 @@ export class NavBar extends Component {
                 </li>
                 <li>
                   <Link
-                    className="nav-link text-white active"
+                    className="nav-link"
                     aria-current="page"
                     to="/science"
                   >
@@ -61,7 +61,7 @@ export class NavBar extends Component {
                 </li>
                 <li>
                   <Link
-                    className="nav-link text-white active"
+                    className="nav-link"
                     aria-current="page"
                     to="/sports"
                   >
@@ -70,7 +70,7 @@ export class NavBar extends Component {
                 </li>
                 <li>
                   <Link
-                    className="nav-link text-white active"
+                    className="nav-link"
                     aria-current="page"
                     to="/technology"
                   >
