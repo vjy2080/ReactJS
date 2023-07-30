@@ -12,13 +12,16 @@ import { Link } from "react-router-dom";
 
 export default function App() {
   const [showNav, setShowNav] = useState(false);
+  
+
+
 
   return (
-    <MDBNavbar expand="lg" light bgColor="light">
+    <MDBNavbar expand="lg" dark bgColor="dark">
       <MDBContainer fluid>
         <MDBNavbarBrand>
           <Link className="nav-link" to="/">
-            Learn-Router
+            Learn-ReactJS
           </Link>
         </MDBNavbarBrand>
         <MDBNavbarToggler
@@ -35,18 +38,8 @@ export default function App() {
               </Link>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <Link className="nav-link" to="/About">
-                About
-              </Link>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <Link className="nav-link" to="/Contact">
-                Contact
-              </Link>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
               <Link className="nav-link" to="/Examples">
-                Examples
+                Topics
               </Link>
             </MDBNavbarItem>
           </MDBNavbarNav>

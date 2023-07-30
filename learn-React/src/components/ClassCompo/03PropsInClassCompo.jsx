@@ -7,6 +7,8 @@ class PropsInClassCompo extends Component {
     render() {
         return (
             <div>
+            <h2>Props in Class Compo</h2>
+
                 {/* <img src={Image2} alt="" /> */}
                 {/* <ChildCompoForProps /> */}
                 <div className="row">

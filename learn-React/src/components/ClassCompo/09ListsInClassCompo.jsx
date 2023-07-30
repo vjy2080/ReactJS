@@ -5,6 +5,7 @@ import { getImageUrl } from './utils.js';
 class ListsInClassCompo extends Component {
     render() {
         
+
         // const people = [
         //     'Creola Katherine Johnson: mathematician',
         //     'Mario Jose Molina-Pasquel Henriquez: chemist',
@@ -22,6 +23,8 @@ class ListsInClassCompo extends Component {
         })
         return (
             <>
+        <h2>Lists in Class Compo</h2>
+
                 <ul className='personsdata'>
                     {ListData}
                 </ul>

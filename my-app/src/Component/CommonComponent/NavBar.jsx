@@ -26,9 +26,9 @@ function NavScrollExample(props) {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link ><Link className='text-decoration-none text-light' to="./">Home</Link></Nav.Link>
-            <Nav.Link ><Link className='text-decoration-none text-light' to="./About">About</Link></Nav.Link>
-            <Nav.Link ><Link className='text-decoration-none text-light' to="./Contact">Contact</Link></Nav.Link>
+            <Nav.Link ><Link className='text-decoration-none' to="./">Home</Link></Nav.Link>
+            <Nav.Link ><Link className='text-decoration-none' to="./About">About</Link></Nav.Link>
+            <Nav.Link ><Link className='text-decoration-none' to="./Contact">Contact</Link></Nav.Link>
             <NavDropdown title="Detail" id="navbarScrollingDropdown">
               <NavDropdown.Item href="./ClassComponent.jsx">Class Component</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Function Component</NavDropdown.Item>

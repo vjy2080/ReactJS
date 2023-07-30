@@ -5,6 +5,7 @@ class CompositionVsInheriCompoInClassCompo extends Component {
     render() {
         return (
             <>
+            <h2>Composition vs Inheritance in Class Compo</h2>
                 Parent  Compo
                 <ChildCompoForComposition title="Something" />
                 <br />

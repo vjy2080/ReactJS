@@ -10,6 +10,8 @@ class ConditionalrenderingClassCompo extends Component {
     render() {
         return (
             <>
+        <h2>Conditional Render in Class Compo</h2>
+            
                 <button onClick={this.btnClickHandle}>Disp Prod</button>
                 <div className="col-lg-3 my-5">
                     { (this.state.data) ? <div className="card">

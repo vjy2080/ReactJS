@@ -52,6 +52,8 @@ class Statelifecycle extends Component {
         
         return (
             <div>
+        <h2>LifeCycle in Class Compo Loader Example</h2>
+                
                 <p>Change Data</p>
                 {JSON.stringify(this.state.loader)}
                 {/* {this.state.loader ? <LoaderCompo/>: <p>Data</p>}  */}

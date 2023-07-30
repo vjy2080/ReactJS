@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  color: rgb(13, 17, 221);
+  background-color: rgb(227, 227, 139);
+  text-align: center;
+}
+h2 {
+  color: rgb(151, 206, 228);
+  background-color: rgb(90, 13, 98);
+  text-align: center;
+}
