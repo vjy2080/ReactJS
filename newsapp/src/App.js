@@ -2,15 +2,18 @@ import './App.css';
 import React from 'react';
 import NavBar from './Components/NavBar';
 import News from './Components/News';
+// import LoadingBar from 'react-top-loading-bar'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const pageSize = 6;
+
+
 
 export default function App() {
   return (
     <BrowserRouter>
       <NavBar />
-
+      
       <Routes>
         <Route exact path="/" element={<News key="general" pageSize={pageSize} category="general" />} />
         <Route exact path="/business" element={<News key="business" pageSize={pageSize} category="business" />} />
