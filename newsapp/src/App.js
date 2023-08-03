@@ -10,7 +10,6 @@ const pageSize = 6;
 
 const App = () => {
   const [progress, setProgress] = useState(0)
-  // export default function App() {
   return (
     <BrowserRouter>
       <NavBar />

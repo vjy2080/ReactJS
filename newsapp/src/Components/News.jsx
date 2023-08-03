@@ -10,26 +10,18 @@ const News = (props) => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-  // document.title = `${this.capitalizeFirstLetter(props.category)} - Get Daily News`;
+  // document.title = `${capitalizeFirstLetter(props.category)} - Get Daily News`;
 
-  capitalizeFirstLetter = (string) => {
+  const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      articles: [],
-      loading: true,
-      page: 1,
-      totalResults: 0,
-    };
-  }
+
 
   const updateNews = async () => {
     props.setProgress(10);
-    const url = `https://newsapi.org/v2/top-headlines?&country=${props.country}&category=${props.category}&apiKey=c9aa8a5802bb4e1998ce842b51b2905a&page=${this.state.page}&pageSize=${props.pageSize}`;
-    this.setState({ loading: true });
+    const url = `https://newsapi.org/v2/top-headlines?&country=${props.country}&category=${props.category}&apiKey=c9aa8a5802bb4e1998ce842b51b2905a&page=${page}&pageSize=${props.pageSize}`;
+    setLoading(true)
     let data = await fetch(url);
     props.setProgress(50);
     let parsedData = await data.json();
@@ -42,54 +34,38 @@ const News = (props) => {
   }
 
   useEffect(() => {
-    this.updateNews();
+    updateNews();
   }, [])
 
 
-  handlePrevClick = async () => {
-    this.setState({ page: this.state.page - 1 });
-    this.updateNews();
-  };
-  handleNextClick = async () => {
-    if (
-      this.state.page + 1 >
-      Math.ceil(this.state.totalResults / props.pageSize)
-    ) {
-    } else {
-      this.setState({ page: this.state.page + 1 });
-      this.updateNews();
-    }
-  };
-
-  fetchMoreData = async () => {
-    this.setState({ page: this.state.page + 1 });
-    const url = `https://newsapi.org/v2/top-headlines?&country=${props.country}&category=${props.category}&apiKey=c9aa8a5802bb4e1998ce842b51b2905a&page=${this.state.page}&pageSize=${props.pageSize}`;
+  const fetchMoreData = async () => {
+    setPage(page + 1)
+    const url = `https://newsapi.org/v2/top-headlines?&country=${props.country}&category=${props.category}&apiKey=c9aa8a5802bb4e1998ce842b51b2905a&page=${page}&pageSize=${props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
-    this.setState({
-      articles: this.state.articles.concat(parsedData.articles),
-      totalResults: parsedData.totalResults,
-      loading: false,
-    });
+
+    setArticles(articles.concat(parsedData.articles))
+    setTotalResults(parsedData.totalResults)
+
   };
 
   return (
     <div className="container my-3">
       <h2 className="text-center" style={{ margin: "30px 0px" }}>
         <b>Get-Daily-News</b> - Top-
-        {this.capitalizeFirstLetter(props.category)} Headlines
+        {capitalizeFirstLetter(props.category)} Headlines
       </h2>
-      {/* {this.state.loading && <Spinner />} */}
+      {loading && <Spinner />}
 
       <InfiniteScroll
-        dataLength={this.state.articles.length}
-        next={this.fetchMoreData}
-        hasMore={this.state.articles.length !== this.state.totalResults}
+        dataLength={articles.length}
+        next={fetchMoreData}
+        hasMore={articles.length !== totalResults}
         loader={<Spinner />}
       >
         <div className="container">
           <div className="row my-3">
-            {this.state.articles.map((element, index) => {
+            {articles.map((element, index) => {
               return (
                 <div className="col-md-4" key={(element.url, index)}>
                   <NewsItem
