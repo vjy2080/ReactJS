@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Logo from "../logo.jpg";
 import { Link } from "react-router-dom";
 
