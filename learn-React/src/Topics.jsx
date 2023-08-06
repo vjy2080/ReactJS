@@ -4,13 +4,15 @@ import { Link, Outlet } from "react-router-dom";
 const Examples = () => {
   return (
     <>
-      <div style={{ background: "blue", color: "white", textAlign: "center" }}>
-        Topics
-      </div>
+
       <div className="container">
+        <div className="row mt-1">
+          <h2>Topics</h2>
+        </div>
+
         <div className="row mt-2">
           <div className="col text-center mt-2">
-            <h2>Examples of Class and Functional Components </h2>
+            <h3>Examples of Class and Functional Components </h3>
           </div>
         </div>
         <div className="row mt-2">
@@ -31,6 +33,7 @@ const Examples = () => {
           </div>
         </div>
       </div>
+
     </>
   );
 };

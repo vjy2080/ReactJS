@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import NavBar from "./CommanCompo/NavBar";
 import Home from "./Home";
+import About from "./about";
 import React, { Suspense } from "react";
 import LoaderCompo from "./CommanCompo/Loader.jsx";
 import Topics from "./Topics";
@@ -43,6 +44,15 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/About",
+    element: (
+      <>
+        <NavBar />
+        <About />
+      </>
+    ),
+  }
 ]);
 
 export default router;

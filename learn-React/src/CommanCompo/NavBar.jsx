@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 export default function App() {
   const [showNav, setShowNav] = useState(false);
-  
+
 
 
 
@@ -40,6 +40,11 @@ export default function App() {
             <MDBNavbarItem>
               <Link className="nav-link" to="/Examples">
                 Topics
+              </Link>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <Link className="nav-link" to="/About">
+                About
               </Link>
             </MDBNavbarItem>
           </MDBNavbarNav>
