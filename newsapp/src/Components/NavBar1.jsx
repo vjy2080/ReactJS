@@ -1,4 +1,4 @@
-import Logo from "../logo.jpg";
+import Logo from "../Images/navLogo.png";
 import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
