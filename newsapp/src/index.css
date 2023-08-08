@@ -1,15 +1,8 @@
-/* .nav-link {
-  border: 2px solid red;
-  border-radius: 15px;
-  padding: 2px 0;
-  margin: 2px;
-  background-color: yellow;
-}
+ body {
+   background: url(Images/bgImg.png);
+ }
 
-.nav-link:hover {
-  border-color: blue;
-  background-color: skyblue;
-} */  
-body{
-  background-color: skyblue;
-}
+ .active {
+   color: black !important;
+   text-shadow: 0 0 1px #FF0000, 0 0 3px #0000FF;
+ }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavBar from './Components/NavBar1';
+import NavBar from './Components/NavBar';
 import News from './Components/News';
 import LoadingBar from 'react-top-loading-bar'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
