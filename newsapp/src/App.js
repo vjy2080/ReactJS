@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useState } from 'react';
 import NavBar from './Components/NavBar1';
 import News from './Components/News';
