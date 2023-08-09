@@ -4,5 +4,11 @@
 
  .active {
    color: black !important;
-   text-shadow: 0 0 1px #FF0000, 0 0 3px #0000FF;
+   text-shadow: 0 0 1px red, 0 0 3px blue;
+ }
+
+ .text-shadow {
+color: pink;
+   text-shadow: 0 0 3px red, 0 0 5px green;
+
  }

@@ -51,7 +51,7 @@ const News = (props) => {
 
   return (
     <div className="container my-3">
-      <h2 className="text-center text-primary my-5" >
+      <h2 className="text-center  text-shadow my-5" >
         Top{" "}
         {capitalizeFirstLetter(props.category)} Headlines
       </h2>

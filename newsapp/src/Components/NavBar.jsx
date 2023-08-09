@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,7 +11,7 @@ function NavigationMenu() {
       <Container>
         <img src={Logo} alt="logo" height={30} className="rounded-5" />
         <Navbar.Brand className="fs-5 mx-3">
-          <NavLink className="mx-2 nav-link" exact to="/" exact="true">Get Daily News</NavLink>
+          <Link className="mx-2 nav-link " to="/">Get Daily News</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
