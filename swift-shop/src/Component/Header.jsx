@@ -28,6 +28,12 @@ function Header() {
               </Nav.Link>
               <Nav.Link>
                 {" "}
+                <Link className="text-decoration-none text-light" to="/product">
+                  Product
+                </Link>{" "}
+              </Nav.Link>
+              <Nav.Link>
+                {" "}
                 <Link className="text-decoration-none text-light" to="/about">
                   About
                 </Link>{" "}

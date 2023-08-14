@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DefaultImg from '../Images/originalLogo.jpg';
 
 const NewsItem = (props) => {
   let { title, description, imageUrl, newsUrl, author, date, source } =
@@ -10,7 +11,8 @@ const NewsItem = (props) => {
         <img
           src={
             !imageUrl
-              ? "https://www.financialexpress.com/wp-content/uploads/2023/07/met.jpg"
+              // ? "https://www.financialexpress.com/wp-content/uploads/2023/07/met.jpg"
+              ? DefaultImg
               : imageUrl
           }
           className="card-img-top"

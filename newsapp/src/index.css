@@ -12,3 +12,7 @@ color: pink;
    text-shadow: 0 0 3px red, 0 0 5px green;
 
  }
+
+ .card-img-top{
+  height: 200px;
+ }

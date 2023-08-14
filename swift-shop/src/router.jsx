@@ -1,25 +1,26 @@
+import { createBrowserRouter } from "react-router-dom";
+import React from "react";
 import Home from './home.jsx';
+import Product from './product.jsx';
 import About from './about.jsx';
 import Contact from './contact.jsx';
 
 
-import { createBrowserRouter, createHashRouter } from "react-router-dom";
-import React,{ Suspense } from "react";
-
-
-const router = createHashRouter([
+const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home/>,
+        element: <Home />,
     }, {
         path: "/about",
-        element: <About/>,
+        element: <About />,
+    }, {
+        path: "/product",
+        element: <Product />,
     }, {
         path: "/contact",
-        element: <Contact/>,
-       
-    }, 
+        element: <Contact />,
+
+    },
 ]);
 
 export default router
-  
