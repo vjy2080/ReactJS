@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
 import './App.css';
 
-
+// Define the API configuration
 const api = {
   key: "ff431b01e24bf42cc8b9d90009e86b7f",
   base: "https://api.openweathermap.org/data/2.5/"
 }
 
 function App() {
+  // Initialize state variables
   const [search, setSearch] = useState("");
   const [weather, setWeather] = useState({});
+
+  // Function to handle the search button click
   const searchbtn = () => {
+    // Fetch weather data from the API
     fetch(`${api.base}weather?q=${search}&units=metric&appid=${api.key}`)
       .then(res => res.json())
       .then(result => {
         setWeather(result);
       })
   }
+
   return (
     <>
       <div className="container">
@@ -25,6 +30,7 @@ function App() {
             <h1 className='text-center my-3'>Weather Detail</h1>
             <div className="result text-center">
               <div className="inpbtn my-5">
+                {/* Input field for city name */}
                 <input
                   className='text-center p-1'
                   type="text"
@@ -32,6 +38,7 @@ function App() {
                   onChange={(e) => setSearch(e.target.value)}
                 />
 
+                {/* Search button */}
                 <button
                   className='mx-2 button-42'
                   type="button"
@@ -40,9 +47,10 @@ function App() {
               </div>
 
               <hr />
+              {/* Conditional rendering based on weather data */}
               {typeof weather.main && weather.coord && weather.wind && weather.weather !== "undefined" ? (
                 <div className='finalResult'>
-
+                  {/* Display weather details in a table */}
                   <table className="my-table">
                     <tbody>
                       <tr>
@@ -91,15 +99,14 @@ function App() {
                     </tbody>
                   </table>
                 </div>
-
               ) : (
+                // Render nothing if weather data is not available
                 ""
               )}
             </div>
           </div>
         </div>
       </div>
-
     </>
   )
 }

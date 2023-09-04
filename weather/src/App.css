@@ -65,12 +65,17 @@ input:focus {
 .my-table td {
     border: 2px solid orange;
     padding: 0px 50px;
-    color: aqua;
+    color: yellow;
     border-radius: 10px;
+    text-shadow: 0px 0px 5px black;
+
+
 }
 
 .my-table th {
-    color: red;
+    color: rgb(249, 28, 28);
+    text-shadow: 0px 0px 5px black;
+
 }
 
 .mainRow {
