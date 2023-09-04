@@ -21,7 +21,7 @@ function App() {
     <>
       <div className="container">
         <div className="row ">
-          <div className="col border border-primary mt-5 ">
+          <div className="col border border-dark mt-5 ">
             <h1 className='text-center my-3'>Weather Detail</h1>
             <div className="result text-center">
               <div className="text-center my-5">
@@ -32,12 +32,11 @@ function App() {
                   onChange={(e) => setSearch(e.target.value)}
                 />
 
-
-                <input className='mx-2 '
+                <button
+                  className='mx-2'
                   type="button"
                   value="Search"
-                  onClick={searchbtn}
-                />
+                  onClick={searchbtn}>Search</button>
               </div>
 
               <hr />
