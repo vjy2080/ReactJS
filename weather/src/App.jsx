@@ -24,7 +24,7 @@ function App() {
           <div className="col border border-dark mt-5 ">
             <h1 className='text-center my-3'>Weather Detail</h1>
             <div className="result text-center">
-              <div className="text-center my-5">
+              <div className="inpbtn my-5">
                 <input
                   className='text-center p-1'
                   type="text"
@@ -33,7 +33,7 @@ function App() {
                 />
 
                 <button
-                  className='mx-2'
+                  className='mx-2 button-42'
                   type="button"
                   value="Search"
                   onClick={searchbtn}>Search</button>
