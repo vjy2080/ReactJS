@@ -14,6 +14,7 @@ function App() {
 
   // Function to handle the search button click
   const searchbtn = () => {
+
     // Fetch weather data from the API
     fetch(`${api.base}weather?q=${search}&units=metric&appid=${api.key}`)
       .then(res => res.json())
@@ -26,16 +27,19 @@ function App() {
     <>
       <div className="container">
         <div className="row ">
-          <div className="col border border-dark mt-5 ">
-            <h1 className='text-center my-3'>Weather Detail</h1>
+          <div className="col border border-dark mt-3 ">
+            <h1 className='text-center my-1'>Weather Detail</h1>
             <div className="result text-center">
-              <div className="inpbtn my-5">
+              <div className="inpbtn my-1">
                 {/* Input field for city name */}
                 <input
                   className='text-center p-1'
                   type="text"
                   placeholder='City Name'
                   onChange={(e) => setSearch(e.target.value)}
+
+                // We can set result by enter city name directly by onKeyDown method (Need to remove button for it)
+                // onKeyDown={searchbtn}
                 />
 
                 {/* Search button */}
@@ -100,8 +104,65 @@ function App() {
                   </table>
                 </div>
               ) : (
-                // Render nothing if weather data is not available
-                ""
+                // Render empty table if weather data is not available
+                <div className='finalResult'>
+                  <table className="my-table">
+                    <tbody>
+                      <tr>
+                        <th className='mainRow' colSpan={2}>Result</th>
+                      </tr>
+                      <tr>
+                        <th>City</th>
+                        <td>{""}</td>
+                      </tr>
+                      <tr>
+                        <th>Latitude</th>
+                        <td>{""}</td>
+
+                      </tr>
+                      <tr>
+                        <th>Longitude</th>
+                        <td>{""}</td>
+
+                      </tr>
+                      <tr>
+                        <th>Visibility</th>
+                        <td>{""}</td>
+
+                      </tr>
+                      <tr>
+                        <th>Wind-Speed</th>
+                        <td>{""}</td>
+
+                      </tr>
+                      <tr>
+                        <th>Temperature</th>
+                        <td>{""}</td>
+
+                      </tr>
+                      <tr>
+                        <th>Feels Like</th>
+                        <td>{""}</td>
+
+                      </tr>
+                      <tr>
+                        <th>Pressure</th>
+                        <td>{""}</td>
+
+                      </tr>
+                      <tr>
+                        <th>Humidity</th>
+                        <td>{""}</td>
+
+                      </tr>
+                      <tr>
+                        <th>Status</th>
+                        <td>{""}</td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               )}
             </div>
           </div>

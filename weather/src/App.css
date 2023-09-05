@@ -7,13 +7,13 @@
 }
 
 h1 {
-    text-shadow: 0px 0px 25px cyan;
-    color: rgb(221, 127, 13) !important;
+    text-shadow: 0px 0px 5px orangered;
+    color: orange !important;
 }
 
 body {
-    /* background-color: rgb(148, 128, 245) !important; */
-    background-image: url(https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background: url(https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) center center/cover;
+    height: 100vh;
 }
 
 .result {
@@ -27,14 +27,14 @@ body {
 }
 
 input {
-    border: 2px solid cyan;
+    border: 2px solid orangered;
     border-radius: 5px;
     box-shadow: 0px 0px 2px red;
     margin: 0px 10px !important;
 }
 
 input:focus {
-    background-color: yellow;
+    background-color: orangered;
 }
 
 
@@ -65,20 +65,14 @@ input:focus {
 .my-table td {
     border: 2px solid orange;
     padding: 0px 50px;
-    color: yellow;
+    color: cyan;
     border-radius: 10px;
     text-shadow: 0px 0px 5px black;
-
-
+    min-width: 200px
 }
 
-.my-table th {
-    color: rgb(249, 28, 28);
-    text-shadow: 0px 0px 5px black;
-
-}
 
 .mainRow {
     font-size: xx-large;
-    color: blue;
+    color: orangered !important;
 }
