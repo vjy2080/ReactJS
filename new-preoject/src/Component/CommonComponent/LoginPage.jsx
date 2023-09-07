@@ -1,11 +1,9 @@
 import React from 'react';
 
-const About = () => {
+export default function LoginPage() {
     return (
         <div>
-            <h1>About</h1>
+            LoginPage
         </div>
     );
-};
-
-export default About;
+}
