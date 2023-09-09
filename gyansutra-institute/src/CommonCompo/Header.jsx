@@ -1,23 +1,14 @@
-import React, { useState } from 'react';
-import {
-    MDBNavbar,
-    MDBContainer,
-    MDBIcon,
-    MDBNavbarNav,
-    MDBNavbarItem,
-    MDBNavbarLink,
-    MDBNavbarToggler,
-    MDBNavbarBrand,
-    MDBCollapse
-} from 'mdb-react-ui-kit';
+import React from 'react';
+import { MDBNavbar, MDBContainer, MDBIcon, MDBNavbarNav, MDBNavbarItem, MDBNavbarLink, MDBNavbarToggler, MDBNavbarBrand, MDBCollapse } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
 
     return (
         <>
-            <MDBNavbar expand='lg' light style={{ backgroundColor: '#e3f2fd' }}>
+            <MDBNavbar expand='lg' light style={{ backgroundColor: '#f1afdb' }}>
                 <MDBContainer fluid>
-                    <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
+                    <MDBNavbarBrand tag={Link} to='/'>GyanSutra</MDBNavbarBrand>
                     <MDBNavbarToggler
                         type='button'
                         data-target='#navbarColor02'
@@ -30,18 +21,9 @@ export default function Header() {
                     <MDBCollapse navbar>
                         <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
                             <MDBNavbarItem className='active'>
-                                <MDBNavbarLink aria-current='page' href='#'>
+                                <MDBNavbarLink aria-current='page' tag={Link} to='/'>
                                     Home
                                 </MDBNavbarLink>
-                            </MDBNavbarItem>
-                            <MDBNavbarItem>
-                                <MDBNavbarLink href='#'>Features</MDBNavbarLink>
-                            </MDBNavbarItem>
-                            <MDBNavbarItem>
-                                <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
-                            </MDBNavbarItem>
-                            <MDBNavbarItem>
-                                <MDBNavbarLink href='#'>About</MDBNavbarLink>
                             </MDBNavbarItem>
                         </MDBNavbarNav>
                     </MDBCollapse>
