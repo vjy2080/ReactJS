@@ -9,27 +9,20 @@ import {
 } from 'mdb-react-ui-kit';
 
 export default function Registration() {
-    const initialFormValue = {
+    const [formValue, setFormValue] = useState({
         fname: '',
         lname: '',
-        uname: '',
+        email: '',
         pw: '',
         city: '',
         zip: '',
-    };
-
-    const [formValue, setFormValue] = useState(initialFormValue);
+    });
 
     const onChange = (e) => {
         setFormValue({ ...formValue, [e.target.name]: e.target.value });
+
     };
-
-    const resetForm = () => {
-        setFormValue(initialFormValue);
-    };
-
-
-
+    // console.log(formValue);
     const submitData = async () => {
         await fetch('http://localhost:3004/posts', {
             method: 'post',
@@ -40,6 +33,7 @@ export default function Registration() {
         }).then(res => { console.log(res); return res.json() }).then((result) => {
         })
     }
+
 
     return (
         <div className="container">
@@ -65,26 +59,30 @@ export default function Registration() {
                             label='Last name'
                         />
                     </MDBValidationItem>
-                    <MDBValidationItem tooltip feedback='Please choose a Username.' invalid className='col-md-6'>
-                        <MDBInput
-                            value={formValue.uname}
-                            name='uname'
-                            onChange={onChange}
-                            id='uname'
-                            required
-                            label='Username'
-                            type='email'
-                        />
+                    <MDBValidationItem tooltip feedback='Please choose a valid email.' invalid className='col-md-6'>
+                        <MDBInputGroup textBefore='@'>
+                            <input
+                                value={formValue.email}
+                                name='email'
+                                onChange={onChange}
+                                type='text'
+                                className='form-control'
+                                id='uname'
+                                placeholder='Username'
+                                required
+                            />
+                        </MDBInputGroup>
                     </MDBValidationItem>
-                    <MDBValidationItem tooltip feedback='Please choose a password.' invalid className='col-md-6'>
-                        <MDBInput
+                    <MDBValidationItem tooltip feedback='Please choose a valid email.' invalid className='col-md-6'>
+                        <input
                             value={formValue.pw}
                             name='pw'
                             onChange={onChange}
-                            id='pw'
-                            required
-                            label='Password'
                             type='password'
+                            className='form-control'
+                            id='uname'
+                            placeholder='Password'
+                            required
                         />
                     </MDBValidationItem>
 
@@ -110,7 +108,6 @@ export default function Registration() {
                     </MDBValidationItem>
                     <div className='col-6'>
                         <MDBBtn onClick={submitData} type='submit'>Submit form</MDBBtn>
-                        <MDBBtn className='mx-3 btn btn-danger' type='button' onClick={resetForm}>Reset form</MDBBtn>
                     </div>
                 </MDBValidation>
             </div>
