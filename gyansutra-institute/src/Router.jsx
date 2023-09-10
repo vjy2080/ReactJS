@@ -4,7 +4,7 @@ import App from './App';
 import About from './about.jsx';
 import Header from './CommonCompo/Header';
 import Login from './LoginPage/Login';
-import Signup from './LoginPage/Registeration';
+import Signup from './LoginPage/test';
 
 
 
@@ -31,7 +31,7 @@ const Router = createBrowserRouter([
     {
         path: "/login",
         element: <>
-            <Header /><Login />
+            <Header /><Login onLogin={onLogin} />
         </>,
     },
 
