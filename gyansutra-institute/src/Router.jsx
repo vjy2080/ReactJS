@@ -1,7 +1,9 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
+import About from './about.jsx';
 import Header from './CommonCompo/Header';
+import Login from './LoginPage/Login';
 
 
 
@@ -10,19 +12,20 @@ const Router = createBrowserRouter([
     {
         path: "/",
         element: <>
-      <Header/>
-        <App />
+            <Header /><App />
         </>,
-        children: [
-
-            {
-                // path: "/dashboard",
-                // element: <Dashboard />,
-            },
-            {
-                // path: "/preferences",
-                // element: <Preferences />,
-            }]
+    },
+    {
+        path: "/about",
+        element: <>
+            <Header /><About />
+        </>,
+    },
+    {
+        path: "/login",
+        element: <>
+            <Header /><Login />
+        </>,
     },
 
 ]);

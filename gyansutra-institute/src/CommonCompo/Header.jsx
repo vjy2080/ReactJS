@@ -2,7 +2,16 @@ import React from 'react';
 import { MDBNavbar, MDBContainer, MDBIcon, MDBNavbarNav, MDBNavbarItem, MDBNavbarLink, MDBNavbarToggler, MDBNavbarBrand, MDBCollapse } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
-export default function Header() {
+function Header() {
+
+    const menuData = { "/": "Home", "/login": "Login", "/about": "About" }
+
+    let ListData = Object.entries(menuData).map(([key, val], index) => {
+        return <MDBNavbarItem key={index} className='active'>
+            <MDBNavbarLink aria-current='page' tag={Link} to={key}>{val}
+            </MDBNavbarLink>
+        </MDBNavbarItem>
+    })
 
     return (
         <>
@@ -20,11 +29,8 @@ export default function Header() {
                     </MDBNavbarToggler>
                     <MDBCollapse navbar>
                         <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-                            <MDBNavbarItem className='active'>
-                                <MDBNavbarLink aria-current='page' tag={Link} to='/'>
-                                    Home
-                                </MDBNavbarLink>
-                            </MDBNavbarItem>
+                            {ListData}
+
                         </MDBNavbarNav>
                     </MDBCollapse>
                 </MDBContainer>
@@ -32,3 +38,5 @@ export default function Header() {
         </>
     );
 }
+
+export default Header;
