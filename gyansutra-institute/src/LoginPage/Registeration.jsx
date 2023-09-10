@@ -13,8 +13,8 @@ export default function Registration() {
         fname: '',
         lname: '',
         email: '',
+        pw: '',
         city: '',
-        state: '',
         zip: '',
     });
 
@@ -22,49 +22,76 @@ export default function Registration() {
         setFormValue({ ...formValue, [e.target.name]: e.target.value });
 
     };
+    // console.log(formValue);
+    const submitData = async () => {
+        await fetch('http://localhost:3004/posts', {
+            method: 'post',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify({ formValue })
+        }).then(res => { console.log(res); return res.json() }).then((result) => {
+        })
+    }
 
 
     return (
         <div className="container">
             <div className="row">
                 <MDBValidation className='row g-4'>
-                    <MDBValidationItem tooltip feedback='Please choose a First name.' invalid className='col-md-4'>
+                    <MDBValidationItem tooltip feedback='Please choose a First name.' invalid className='col-md-6'>
                         <MDBInput
                             value={formValue.fname}
                             name='fname'
                             onChange={onChange}
-                            id='validationCustom01'
+                            id='fname'
                             required
                             label='First name'
                         />
                     </MDBValidationItem>
-                    <MDBValidationItem tooltip feedback='Please choose a Last name.' invalid className='col-md-4'>
+                    <MDBValidationItem tooltip feedback='Please choose a Last name.' invalid className='col-md-6'>
                         <MDBInput
                             value={formValue.lname}
                             name='lname'
                             onChange={onChange}
-                            id='validationCustom02'
+                            id='lname'
                             required
                             label='Last name'
                         />
                     </MDBValidationItem>
-                    <MDBValidationItem tooltip feedback='Please choose a username.' invalid className='col-md-4'>
+                    <MDBValidationItem tooltip feedback='Please choose a valid email.' invalid className='col-md-6'>
                         <MDBInputGroup textBefore='@'>
                             <input
+                                value={formValue.email}
+                                name='email'
+                                onChange={onChange}
                                 type='text'
                                 className='form-control'
-                                id='validationCustomUsername'
+                                id='uname'
                                 placeholder='Username'
                                 required
                             />
                         </MDBInputGroup>
                     </MDBValidationItem>
+                    <MDBValidationItem tooltip feedback='Please choose a valid email.' invalid className='col-md-6'>
+                        <input
+                            value={formValue.pw}
+                            name='pw'
+                            onChange={onChange}
+                            type='password'
+                            className='form-control'
+                            id='uname'
+                            placeholder='Password'
+                            required
+                        />
+                    </MDBValidationItem>
+
                     <MDBValidationItem tooltip className='col-md-6' feedback='Please provide a valid city.' invalid>
                         <MDBInput
                             value={formValue.city}
                             name='city'
                             onChange={onChange}
-                            id='validationCustom03'
+                            id='city'
                             required
                             label='City'
                         />
@@ -74,13 +101,13 @@ export default function Registration() {
                             value={formValue.zip}
                             name='zip'
                             onChange={onChange}
-                            id='validationCustom05'
+                            id='zip'
                             required
                             label='Zip'
                         />
                     </MDBValidationItem>
                     <div className='col-6'>
-                        <MDBBtn type='submit'>Submit form</MDBBtn>
+                        <MDBBtn onClick={submitData} type='submit'>Submit form</MDBBtn>
                     </div>
                 </MDBValidation>
             </div>
