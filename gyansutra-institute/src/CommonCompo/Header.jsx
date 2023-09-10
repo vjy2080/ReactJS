@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MDBNavbar, MDBContainer, MDBIcon, MDBNavbarNav, MDBNavbarItem, MDBNavbarLink, MDBNavbarToggler, MDBNavbarBrand, MDBCollapse } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
 function Header() {
+    // useState used for menu toggler in responsive
+    const [showNavExternal, setShowNavExternal] = useState(false);
 
-    const menuData = { "/": "Home", "/login": "Login", "/about": "About" }
+    // Create a dynamic menuBar function
+    const menuData = { "/": "Home", "/about": "About", "/login": "Login", "/signup": "Signup" }
 
     let ListData = Object.entries(menuData).map(([key, val], index) => {
         return <MDBNavbarItem key={index} className='active'>
@@ -24,13 +27,13 @@ function Header() {
                         aria-controls='navbarColor02'
                         aria-expanded='false'
                         aria-label='Toggle navigation'
+                        onClick={() => setShowNavExternal(!showNavExternal)}
                     >
                         <MDBIcon icon='bars' fas />
                     </MDBNavbarToggler>
-                    <MDBCollapse navbar>
+                    <MDBCollapse show={showNavExternal} navbar>
                         <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
                             {ListData}
-
                         </MDBNavbarNav>
                     </MDBCollapse>
                 </MDBContainer>

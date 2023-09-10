@@ -4,6 +4,7 @@ import App from './App';
 import About from './about.jsx';
 import Header from './CommonCompo/Header';
 import Login from './LoginPage/Login';
+import Signup from './LoginPage/Registeration';
 
 
 
@@ -19,6 +20,12 @@ const Router = createBrowserRouter([
         path: "/about",
         element: <>
             <Header /><About />
+        </>,
+    },
+    {
+        path: "/signup",
+        element: <>
+            <Header /><Signup />
         </>,
     },
     {
