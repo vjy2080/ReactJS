@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login({ onLogin }) {
+export default function Login() {
   const [loginData, setLoginData] = useState({ uname: '', pw: '' });
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ export default function Login({ onLogin }) {
 
       if (user) {
         // Call the onLogin function from the parent component
-        onLogin(user);
+        console.log(user.formValue.fname);
         console.log('Login successful');
 
         // Redirect to the home page ("/") after a successful login

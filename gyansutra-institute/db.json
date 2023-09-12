@@ -15,6 +15,28 @@
         "zip": "382016"
       },
       "id": 2
+    },
+    {
+      "formValue": {
+        "fname": "PRAJAPATI",
+        "lname": "GANPATBHAI",
+        "uname": "krish123@abc.com",
+        "pw": "krsh",
+        "city": "Vavol, Gandhinagar ",
+        "zip": "382016"
+      },
+      "id": 3
+    },
+    {
+      "formValue": {
+        "fname": "PRAJAPATI",
+        "lname": "GANPATBHAI",
+        "uname": "vjy2080@gmail.com",
+        "pw": "vjy",
+        "city": "Vavol, Gandhinagar ",
+        "zip": "382016"
+      },
+      "id": 4
     }
-   ]
+  ]
 }
