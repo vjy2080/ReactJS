@@ -9,6 +9,7 @@ export default function Login({ onLogin }) {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
   };
+  //
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,6 +67,7 @@ export default function Login({ onLogin }) {
               value={loginData.uname}
               onChange={handleChange}
               required
+              autoComplete="username"
             />
           </div>
           <div className="mb-3">
@@ -80,6 +82,7 @@ export default function Login({ onLogin }) {
               value={loginData.pw}
               onChange={handleChange}
               required
+              autoComplete="current-password"
             />
           </div>
           <button type="submit" className="btn btn-primary">

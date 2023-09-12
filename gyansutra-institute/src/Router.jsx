@@ -7,8 +7,9 @@ import Login from './LoginPage/Login';
 import Signup from './LoginPage/test';
 
 
-
 const Router = createBrowserRouter([
+
+
 
     {
         path: "/",
@@ -31,7 +32,7 @@ const Router = createBrowserRouter([
     {
         path: "/login",
         element: <>
-            <Header /><Login onLogin={onLogin} />
+            <Header /><Login />
         </>,
     },
 

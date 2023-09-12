@@ -6,46 +6,15 @@
       "author": "typicode"
     },
     {
-      "fname": "PRAJAPATI",
-      "lname": "GANPATBHAI",
-      "uname": "gkp123@vjy.com",
-      "pw": "vjy123",
-      "city": "MANSA",
-      "zip": "382810",
-      "id": 2
-    },
-    {
-      "formValue": {
-        "fname": "PRAJAPATI",
-        "lname": "GANPATBHAI",
-        "uname": "gkp123@vjy.com",
-        "pw": "vjy@123",
-        "city": "Vavol, Gandhinagar ",
-        "zip": "382016"
-      },
-      "id": 3
-    },
-    {
       "formValue": {
         "fname": "PRAJAPATI",
         "lname": "GANPATBHAI",
         "uname": "vjy2080@gmail.com",
-        "pw": "vjy@123",
+        "pw": "vjy1518",
         "city": "Vavol, Gandhinagar ",
         "zip": "382016"
       },
-      "id": 4
-    },
-    {
-      "formValue": {
-        "fname": "knknflsfkn",
-        "lname": "klnlknldn",
-        "uname": "kvnkan@KMSKM",
-        "pw": "MDLKASDMAK",
-        "city": "KVMVLKVMSD",
-        "zip": "394309423"
-      },
-      "id": 5
+      "id": 2
     }
-  ]
+   ]
 }
