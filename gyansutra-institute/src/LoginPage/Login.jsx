@@ -9,7 +9,6 @@ export default function Login() {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
   };
-  //
 
   const handleSubmit = async (e) => {
     e.preventDefault();

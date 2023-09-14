@@ -7,25 +7,27 @@
     },
     {
       "formValue": {
-        "fname": "PRAJAPATI",
-        "lname": "GANPATBHAI",
-        "uname": "vjy2080@gmail.com",
-        "pw": "vjy",
-        "city": "Vavol, Gandhinagar ",
-        "zip": "382016"
+        "fname": "admin",
+        "lname": "",
+        "uname": "admin@example.com",
+        "pw": "admin123",
+        "city": "",
+        "zip": "",
+        "role_id": "1"
       },
-      "id": 4
+      "id": 2
     },
     {
       "formValue": {
-        "fname": "PRAJAPATI",
-        "lname": "GANPATBHAI",
-        "uname": "vjy2080@gmail.com",
-        "pw": "dscsdcSdc",
-        "city": "Vavol, Gandhinagar ",
-        "zip": "382016"
+        "fname": "krishika",
+        "lname": "prajapati",
+        "uname": "kvp@gmail.com",
+        "pw": "kvp",
+        "city": "gandhinagar",
+        "zip": "382900",
+        "role_id": "2"
       },
-      "id": 5
+      "id": 3
     }
   ]
 }

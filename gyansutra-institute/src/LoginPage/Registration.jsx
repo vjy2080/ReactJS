@@ -10,10 +10,13 @@ export default function Registration({ onRegistration }) {
         pw: '',
         city: '',
         zip: '',
+        role_id: '2'
     };
 
     const [formValue, setFormValue] = useState(initialFormValue);
     const [isRegistered, setIsRegistered] = useState(false);
+    // const [checkData, setcheckData] = useState({ uname: '' });
+
 
     const onChange = (e) => {
         setFormValue({ ...formValue, [e.target.name]: e.target.value });
@@ -24,32 +27,52 @@ export default function Registration({ onRegistration }) {
     };
 
     const submitData = async () => {
-        try {
-            const response = await fetch('http://localhost:3004/posts', {
-                method: 'post',
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-                body: JSON.stringify({ formValue }),
-            });
+        const response = await fetch('http://localhost:3004/posts');
+        const apiData = await response.json();
+        const user = apiData.find(
+            (userData) =>
 
-            if (response.ok) {
-                setIsRegistered(true);
-                onRegistration(formValue.uname); // Notify the parent component about the registration
-            } else {
-                console.error('Registration failed.');
+                // Check for direct user data
+                (userData.uname === formValue.uname) ||
+
+                // Check for nested user data
+                (userData.formValue && userData.formValue.uname === formValue.uname)
+        );
+        // console.log('checkData', checkData);
+        console.log('user', user);
+        if (!user) {
+
+            try {
+                const response = await fetch('http://localhost:3004/posts', {
+                    method: 'post',
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                    body: JSON.stringify({ formValue }),
+                });
+
+                if (response.ok) {
+                    setIsRegistered(true);
+                    onRegistration(formValue.uname); // Notify the parent component about the registration
+                } else {
+                    console.error('Registration failed.');
+                }
+            } catch (error) {
+                // console.error('An error occurred:', error);
             }
-        } catch (error) {
-            // console.error('An error occurred:', error);
+        } else {
+            console.error('Already Registered.');
+
         }
     };
 
     return (
+
         <div className="container w-50">
             {isRegistered ? (
                 <div>
                     <p>Registration successful! You can now log in.</p>
-                    <Login/>
+                    <Login />
                 </div>
             ) : (
                 <div className="row d-flex justify-content-center border border-danger pb-5 mt-3 rounded-5">
@@ -63,6 +86,7 @@ export default function Registration({ onRegistration }) {
                                 id='fname'
                                 required
                                 label='First name'
+                                autoComplete='additional-name'
                             />
                         </MDBValidationItem>
                         <MDBValidationItem tooltip feedback='Please choose a Last name.' invalid className='col-md-6'>
@@ -73,6 +97,7 @@ export default function Registration({ onRegistration }) {
                                 id='lname'
                                 required
                                 label='Last name'
+                                autoComplete='given-name'
                             />
                         </MDBValidationItem>
                         <MDBValidationItem tooltip feedback='Please choose a Username.' invalid className='col-md-6'>
@@ -122,8 +147,10 @@ export default function Registration({ onRegistration }) {
                                 label='Zip'
                             />
                         </MDBValidationItem>
-                        <div className='col-6'>
+                        <div className='text-center col-6'>
                             <MDBBtn onClick={submitData} type='button'>Submit form</MDBBtn>
+                        </div>
+                        <div className='text-center col-6'>
                             <MDBBtn className='mx-3 btn btn-danger' type='button' onClick={resetForm}>Reset form</MDBBtn>
                         </div>
                     </MDBValidation>
