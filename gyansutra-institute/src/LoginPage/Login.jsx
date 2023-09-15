@@ -25,11 +25,33 @@ export default function Login() {
       const apiData = await response.json();
       console.log('API Data:', apiData);
 
+      // Find a admin in the API data whose name and password match the entered values
+      const admin = apiData.find(
+        (adminData) =>
+          (adminData.uname === loginData.uname && adminData.pw === loginData.pw) || // Check for direct admin data
+          (adminData.formValue && adminData.formValue.uname === loginData.uname && adminData.formValue.pw === loginData.pw && adminData.formValue.role_id === "1") // Check for nested admin data
+      );
+
+      console.log('Found admin:', admin);
+
+      if (admin) {
+        // Call the onLogin function from the parent component
+        console.log(admin.formValue.fname);
+        console.log("Role_id :- ", admin.formValue.role_id);
+        console.log('Login successful');
+
+        // Redirect to the home page ("/") after a successful login
+        navigate('/adminDash');
+        return;
+      }
+
+
+
       // Find a user in the API data whose username and password match the entered values
       const user = apiData.find(
         (userData) =>
           (userData.uname === loginData.uname && userData.pw === loginData.pw) || // Check for direct user data
-          (userData.formValue && userData.formValue.uname === loginData.uname && userData.formValue.pw === loginData.pw) // Check for nested user data
+          (userData.formValue && userData.formValue.uname === loginData.uname && userData.formValue.pw === loginData.pw && userData.formValue.role_id === "2") // Check for nested user data
       );
 
       console.log('Found User:', user);
@@ -37,6 +59,7 @@ export default function Login() {
       if (user) {
         // Call the onLogin function from the parent component
         console.log(user.formValue.fname);
+        console.log("Role_id :- ", user.formValue.role_id);
         console.log('Login successful');
 
         // Redirect to the home page ("/") after a successful login
@@ -44,6 +67,7 @@ export default function Login() {
       } else {
         console.error('Check Username and password are correct.');
       }
+
     } catch (error) {
       console.error('An error occurred:', error);
     }

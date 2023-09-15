@@ -19,15 +19,27 @@
     },
     {
       "formValue": {
-        "fname": "krishika",
-        "lname": "prajapati",
-        "uname": "kvp@gmail.com",
-        "pw": "kvp",
-        "city": "gandhinagar",
-        "zip": "382900",
+        "fname": "VIJAYKUMAR",
+        "lname": "PRAJAPATI",
+        "uname": "vjy2080@gmail.com",
+        "pw": "vjy",
+        "city": "Vavol, Gandhinagar ",
+        "zip": "382016",
         "role_id": "2"
       },
       "id": 3
+    },
+    {
+      "formValue": {
+        "fname": "VIJAYKUMAR",
+        "lname": "PRAJAPATI",
+        "uname": "vjy20800@gmail.com",
+        "pw": "vjy",
+        "city": "Vavol, Gandhinagar ",
+        "zip": "382016",
+        "role_id": "2"
+      },
+      "id": 4
     }
   ]
 }
