@@ -23,35 +23,11 @@
         "lname": "PRAJAPATI",
         "uname": "vjy2080@gmail.com",
         "pw": "vjy",
-        "city": "MANSA",
-        "zip": "382810",
+        "city": "Vavol, Gandhinagar ",
+        "zip": "382016",
         "role_id": "2"
       },
       "id": 3
-    },
-    {
-      "formValue": {
-        "fname": "Bhavna",
-        "lname": "Prajapati",
-        "uname": "bvp2080@gmail.com",
-        "pw": "bvp",
-        "city": "Gandhinagar ",
-        "zip": "382016",
-        "role_id": "2"
-      },
-      "id": 4
-    },
-    {
-      "formValue": {
-        "fname": "Krishika",
-        "lname": "Prajapati",
-        "uname": "kvp2080@gmail.com",
-        "pw": "kvp",
-        "city": "Gandhinagar ",
-        "zip": "382016",
-        "role_id": "2"
-      },
-      "id": 5
     }
   ]
 }
