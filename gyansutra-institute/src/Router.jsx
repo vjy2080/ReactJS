@@ -5,7 +5,7 @@ import Header from './CommonCompo/Header';
 import Login from './LoginPage/Login';
 import Signup from './LoginPage/Registration';
 import Home from './CommonCompo/Home.jsx';
-import AdminDash from './CommonCompo/AdminDash.jsx';
+import AdminDash from './Admin/AdminDash.jsx';
 
 
 const Router = createBrowserRouter([
