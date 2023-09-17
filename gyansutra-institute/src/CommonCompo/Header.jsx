@@ -10,7 +10,10 @@ function Header() {
     const [showNavExternal, setShowNavExternal] = useState(false);
     const navigate = useNavigate();
 
-    const userName = Cookies.get('Name');
+    const capitalizeFirstLetter = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    };
+    const userName = capitalizeFirstLetter(Cookies.get('Name'));
     const Logout = () => {
         Cookies.remove("Name");
         navigate('/Login')
@@ -45,19 +48,19 @@ function Header() {
                         <MDBIcon icon='bars' fas />
                     </MDBNavbarToggler>
                     <MDBCollapse show={showNavExternal} navbar>
-                        <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
+                        <MDBNavbarNav className='me-auto mb-2 mb-sm-0'>
                             {ListData}
                         </MDBNavbarNav>
                         {userName ?
                             <>
-                                <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-                                    Hello, {userName}
-                                </MDBNavbarNav>
-                                <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-                                    <MDBBtn onClick={Logout} className='me-1' color='danger'>
-                                        Logout
-                                    </MDBBtn>
-                                </MDBNavbarNav>
+                                <div className="text-dark text-center mx-5 ">
+                                    {'Hello, ' + userName}
+                                </div>
+                                {/* <MDBNavbarNav className='border me-auto mb-2 mb-lg-0'> */}
+                                <MDBBtn onClick={Logout} className='mx-2' color='danger'>
+                                    Logout
+                                </MDBBtn>
+                                {/* </MDBNavbarNav> */}
                             </>
                             : ""
                         }
