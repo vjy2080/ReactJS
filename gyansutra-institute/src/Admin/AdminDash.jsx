@@ -1,25 +1,37 @@
 import React from 'react';
 import UserStatistics from './Dashboard/UserStatistics';
 import RecentActivity from './Dashboard/RecentActivity'
-import Charts from './Dashboard/Charts';
 import Sidebar from './Sidebar';
+import Charts from './Dashboard/Charts';
 
-const AdminDash = () => {
+
+
+
+const Dashboard = () => {
     return (
         <>
+
             <header>
-                <h1>Admin Dashboard</h1>
+                <h1 className='text-center mb-0 py-1 bg-secondary'>Admin Dashboard</h1>
             </header>
-            <main>
-                <div className="dashboard">
-                    <UserStatistics />
-                    <RecentActivity />
-                    <Charts />
+
+            <div className=" border bg-warning p-2">
+                <div className="row d-flex">
+                    <div className="col-md-3">
+                        <Sidebar />
+                    </div>
+                    <div className="col-md-9">
+
+                        <div className="content">
+                            <UserStatistics />
+                            <RecentActivity />
+                            <Charts />
+                        </div>
+                    </div>
                 </div>
-            </main>
-            <Sidebar />
+            </div>
         </>
     );
 };
 
-export default AdminDash;
+export default Dashboard;
