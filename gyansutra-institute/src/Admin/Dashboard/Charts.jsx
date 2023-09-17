@@ -2,27 +2,27 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const data = [
-  { name: 'Jan', sales: 30 },
-  { name: 'Feb', sales: 45 },
-  { name: 'March', sales: 60 },
-  { name: 'April', sales: 80 },
-  { name: 'May', sales: 55 },
-  { name: 'June', sales: 65 },
-  { name: 'July', sales: 80 },
-  { name: 'Aug', sales: 40 },
-  { name: 'Sept', sales: 88 },
-  { name: 'Oct', sales: 65 },
-  { name: 'Nov', sales: 10 },
-  { name: 'Dec', sales: 90 },
+  { name: 'Jan', Students: 30 },
+  { name: 'Feb', Students: 45 },
+  { name: 'March', Students: 60 },
+  { name: 'April', Students: 80 },
+  { name: 'May', Students: 55 },
+  { name: 'June', Students: 65 },
+  { name: 'July', Students: 80 },
+  { name: 'Aug', Students: 40 },
+  { name: 'Sept', Students: 88 },
+  { name: 'Oct', Students: 65 },
+  { name: 'Nov', Students: 10 },
+  { name: 'Dec', Students: 90 },
 ];
 
 const LineChartComponent = () => {
   return (
-    <LineChart width={800} height={300} data={data}>
+    <LineChart className='mt-5' width={800} height={300} data={data}>
       <XAxis dataKey="name" />
       <YAxis />
       <CartesianGrid stroke="#f5f5f5" />
-      <Line type="monotone" dataKey="sales" stroke="#8884d8" />
+      <Line type="monotone" dataKey="Students" stroke="#8884d8" />
       <Tooltip />
       <Legend />
     </LineChart>

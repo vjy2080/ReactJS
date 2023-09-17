@@ -9,12 +9,20 @@ const UserStatistics = () => {
   };
 
   return (
-    <div className="user-statistics">
-      <h2>User Statistics</h2>
-      <p>Total Users: {userStats.totalUsers}</p>
-      <p>Active Users: {userStats.activeUsers}</p>
-      <p>New Users Today: {userStats.newUsers}</p>
-    </div>
+    <>
+      <h2 className='mb-5'>User Statistics</h2>
+      <div className="user-statistics d-flex justify-content-between my-3">
+        <div className='border border-dark p-3 w-100 d-flex  justify-content-center'>
+          <p className='align-items-center mb-0'>Total Users: {userStats.totalUsers}</p>
+        </div>
+        <div className='border border-dark p-3 w-100 d-flex  justify-content-center'>
+          <p className='align-items-center mb-0'>Active Users: {userStats.activeUsers}</p>
+        </div>
+        <div className='border border-dark p-3 w-100 d-flex  justify-content-center'>
+          <p className='align-items-center mb-0'>New Users Today: {userStats.newUsers}</p>
+        </div>
+      </div>
+    </>
   );
 };
 

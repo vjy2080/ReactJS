@@ -8,12 +8,13 @@ import Cookies from 'js-cookie';
 function Header() {
     // useState used for menu toggler in responsive
     const [showNavExternal, setShowNavExternal] = useState(false);
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
+    const logoUrl = process.env.PUBLIC_URL + '/logo.webp';
     const capitalizeFirstLetter = (str) => {
         if (!str || str.length === 0) {
             return '';
-          }
+        }
         return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     };
     const userName = capitalizeFirstLetter(Cookies.get('Name'));
@@ -37,9 +38,11 @@ function Header() {
 
     return (
         <>
-            <MDBNavbar expand='lg' light style={{ backgroundColor: '#f1afdb' }}>
+            <MDBNavbar expand='sm' className='py-0 sticky-top' light style={{ backgroundColor: '#f1afdb' }}>
                 <MDBContainer fluid>
-                    <MDBNavbarBrand tag={Link} to='/'>GyanSutra</MDBNavbarBrand>
+                    <MDBNavbarBrand tag={Link} to='/'>
+                        <img src={logoUrl} width={180} height={60} alt="Logo" className="rounded-5 my-0 py-o logo" />
+                    </MDBNavbarBrand>
                     <MDBNavbarToggler
                         type='button'
                         data-target='#navbarColor02'

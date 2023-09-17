@@ -10,7 +10,7 @@ const RecentActivity = () => {
 
   return (
     <div className="recent-activity">
-      <h2>Recent Activity</h2>
+      <h2 className='mt-5'>Recent Activity</h2>
       <ul>
         {recentActivity.map((activity, index) => (
           <li key={index}>{activity}</li>
