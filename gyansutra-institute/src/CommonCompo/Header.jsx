@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
-import { MDBNavbar, MDBContainer, MDBIcon, MDBNavbarNav, MDBNavbarItem, MDBNavbarLink, MDBNavbarToggler, MDBNavbarBrand, MDBCollapse } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
+import { MDBNavbar, MDBContainer, MDBIcon, MDBNavbarNav, MDBNavbarItem, MDBNavbarLink, MDBNavbarToggler, MDBNavbarBrand, MDBCollapse, MDBBtn } from 'mdb-react-ui-kit';
+import { Link, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
+
 
 function Header() {
     // useState used for menu toggler in responsive
     const [showNavExternal, setShowNavExternal] = useState(false);
+    const navigate = useNavigate();
+
+    const userName = Cookies.get('Name');
+    const Logout = () => {
+        Cookies.remove("Name");
+        navigate('/Login')
+
+    };
+
 
     // Create a dynamic menuBar function
     const menuData = { "/": "Home", "/about": "About", "/login": "Login", "/signup": "Signup" }
@@ -15,6 +27,7 @@ function Header() {
             </MDBNavbarLink>
         </MDBNavbarItem>
     })
+
 
     return (
         <>
@@ -35,6 +48,20 @@ function Header() {
                         <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
                             {ListData}
                         </MDBNavbarNav>
+                        {userName ?
+                            <>
+                                <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
+                                    Hello, {userName}
+                                </MDBNavbarNav>
+                                <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
+                                    <MDBBtn onClick={Logout} className='me-1' color='danger'>
+                                        Logout
+                                    </MDBBtn>
+                                </MDBNavbarNav>
+                            </>
+                            : ""
+                        }
+
                     </MDBCollapse>
                 </MDBContainer>
             </MDBNavbar>

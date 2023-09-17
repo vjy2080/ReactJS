@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+// import AlertBox from './AlertBox';
+import { useCookies } from 'react-cookie';
 
 export default function Login() {
   const [loginData, setLoginData] = useState({ uname: '', pw: '' });
   const navigate = useNavigate();
+  const [cookies, setCookie] = useCookies(['user']);
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,7 +43,9 @@ export default function Login() {
         // Call the onLogin function from the parent component
         console.log(admin.formValue.fname);
         console.log("Role_id :- ", admin.formValue.role_id);
-        console.log('Login successful');
+        console.log('Login successful As Admin');
+        // setCookie('Name', admin.formValue.fname, { path: '/' });
+        setCookie('Name', admin.formValue.fname);
 
         // Redirect to the home page ("/") after a successful login
         navigate('/adminDash');
@@ -60,7 +67,9 @@ export default function Login() {
         // Call the onLogin function from the parent component
         console.log(user.formValue.fname);
         console.log("Role_id :- ", user.formValue.role_id);
-        console.log('Login successful');
+        console.log('Login successful as user');
+        setCookie('Name', user.formValue.fname);
+
 
         // Redirect to the home page ("/") after a successful login
         navigate('/');

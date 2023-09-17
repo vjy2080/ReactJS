@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MDBInput, MDBBtn, MDBValidation, MDBValidationItem } from 'mdb-react-ui-kit';
-import Login from './Login';
+import AlertBox from './AlertBox';
+import { useNavigate } from 'react-router-dom';
 
 export default function Registration({ onRegistration }) {
     const initialFormValue = {
@@ -12,10 +13,9 @@ export default function Registration({ onRegistration }) {
         zip: '',
         role_id: '2'
     };
-
+    const navigate = useNavigate();
     const [formValue, setFormValue] = useState(initialFormValue);
     const [isRegistered, setIsRegistered] = useState(false);
-    // const [checkData, setcheckData] = useState({ uname: '' });
 
 
     const onChange = (e) => {
@@ -62,20 +62,16 @@ export default function Registration({ onRegistration }) {
             }
         } else {
             console.error('Already Registered.');
-
+            navigate('/Login');
         }
     };
 
     return (
 
         <div className="container w-50">
-            {isRegistered ? (
-                <div>
-                    <p>Registration successful! You can now log in.</p>
-                    <Login />
-                </div>
+            {isRegistered ? (<AlertBox type='success' msg='Registration Successfully' to='/Login' redirect='Login Here' />
             ) : (
-                <div className="row d-flex justify-content-center border border-danger pb-5 mt-3 rounded-5">
+                <div className="row d-flex justify-content-center border border-danger  pb-5 mt-3 rounded-5">
                     <h1 className='text-center my-3'>Registration Form</h1>
                     <MDBValidation className='row g-4 '>
                         <MDBValidationItem tooltip feedback='Please choose a First name.' invalid className='col-md-6'>
@@ -154,8 +150,9 @@ export default function Registration({ onRegistration }) {
                             <MDBBtn className='mx-3 btn btn-danger' type='button' onClick={resetForm}>Reset form</MDBBtn>
                         </div>
                     </MDBValidation>
-                </div>
-            )}
-        </div>
+                </div >
+            )
+            }
+        </div >
     );
 }
