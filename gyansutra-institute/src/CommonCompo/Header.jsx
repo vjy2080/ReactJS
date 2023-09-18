@@ -26,7 +26,7 @@ function Header() {
 
 
     // Create a dynamic menuBar function
-    const menuData = { "/": "Home", "/about": "About", "/login": "Login", "/signup": "Signup" }
+    const menuData = { "/": "Home", "/about": "About", "/login": "Login" }
 
     let ListData = Object.entries(menuData).map(([key, val], index) => {
         return <MDBNavbarItem key={index} className='active'>
@@ -59,14 +59,14 @@ function Header() {
                         </MDBNavbarNav>
                         {userName ?
                             <>
-                                <div className="text-dark text-center mx-5 ">
-                                    {'Hello, ' + userName}
-                                </div>
-                                {/* <MDBNavbarNav className='border me-auto mb-2 mb-lg-0'> */}
-                                <MDBBtn onClick={Logout} className='mx-2' color='danger'>
-                                    Logout
-                                </MDBBtn>
-                                {/* </MDBNavbarNav> */}
+                                <MDBNavbarNav className=' me-auto mb-2 d-flex justify-content-end  mb-sm-0'>
+                                    <div className="text-dark text-center">
+                                        {'Hello,'} <br /> {userName}
+                                    </div>
+                                    <MDBBtn onClick={Logout} className='mx-2' color='danger'>
+                                        Logout
+                                    </MDBBtn>
+                                </MDBNavbarNav>
                             </>
                             : ""
                         }

@@ -4,7 +4,7 @@ export default function about() {
     return (
         <>
             <div className="bg-dark text-warning px-5 py-2">
-                <h1 className="text-center my-3">About GyanSutra Institute</h1>
+                <h1 className="text-center my-3">About-Us</h1>
                 <p>
                     Welcome to GyanSutra Institute, where education meets innovation and
                     excellence. We are dedicated to providing a seamless and advanced

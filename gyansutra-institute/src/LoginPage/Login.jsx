@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useLayoutEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 // import AlertBox from './AlertBox';
 import { useCookies } from 'react-cookie';
 
@@ -8,8 +8,9 @@ export default function Login() {
   const navigate = useNavigate();
   const [cookies, setCookie] = useCookies(['user']);
 
-
-
+  useLayoutEffect(() => {
+       document.body.style.backgroundColor = "rgba(241,175,219, 0.9)"
+  });
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
@@ -82,18 +83,21 @@ export default function Login() {
     }
   };
 
+
+
   return (
-    <div className="container w-50">
-      <div className="row d-flex justify-content-center border border-danger pb-5 mt-3 rounded-5">
-        <h1 className="text-center my-3">Login</h1>
+    <div  className='card rounded-7 me-lg-n5'>
+    <div className="container w-50" >
+      <div className="row d-flex justify-content-center bg-transperant  border border-danger pb-5 mt-3 rounded-5">
+        <h3 className="text-center text-dark my-3">Please Login To Continue...</h3>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="uname" className="form-label">
+            <label htmlFor="uname" className="text-dark text-center w-100 fw-bold form-label">
               Username (Email)
             </label>
             <input
               type="email"
-              className="form-control"
+              className="form-control w-50 text-center mx-auto"
               id="uname"
               name="uname"
               value={loginData.uname}
@@ -103,12 +107,12 @@ export default function Login() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="pw" className="form-label">
+            <label htmlFor="pw" className="text-dark text-center w-100 fw-bold form-label">
               Password
             </label>
             <input
               type="password"
-              className="form-control"
+              className="form-control  w-50 text-center mx-auto"
               id="pw"
               name="pw"
               value={loginData.pw}
@@ -117,11 +121,18 @@ export default function Login() {
               autoComplete="current-password"
             />
           </div>
-          <button type="submit" className="btn btn-primary">
-            Login
-          </button>
+          <div className="text-center">
+            <button type="submit" className=" btn btn-primary">
+              Login
+            </button>
+          </div>
+          <div className='my-2 text-center'>
+            <p>Don't have an account yet ?</p>
+            <Link to='/signup'>Create an account</Link>
+          </div>
         </form>
       </div>
+    </div>
     </div>
   );
 }
