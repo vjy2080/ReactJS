@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // import AlertBox from './AlertBox';
 import { useCookies } from 'react-cookie';
@@ -8,8 +8,8 @@ export default function Login() {
   const navigate = useNavigate();
   const [cookies, setCookie] = useCookies(['user']);
 
-  useLayoutEffect(() => {
-       document.body.style.backgroundColor = "rgba(241,175,219, 0.9)"
+  useEffect(() => {
+    document.body.style.backgroundColor = "rgb(180, 218, 233)"
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,9 +86,8 @@ export default function Login() {
 
 
   return (
-    <div  className='card rounded-7 me-lg-n5'>
-    <div className="container w-50" >
-      <div className="row d-flex justify-content-center bg-transperant  border border-danger pb-5 mt-3 rounded-5">
+    <div className="login container w-50" >
+      <div className="row d-flex justify-content-center pb-5 mt-3 rounded-5">
         <h3 className="text-center text-dark my-3">Please Login To Continue...</h3>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -127,12 +126,11 @@ export default function Login() {
             </button>
           </div>
           <div className='my-2 text-center'>
-            <p>Don't have an account yet ?</p>
-            <Link to='/signup'>Create an account</Link>
+            <p className='text-danger'>Don't have an account yet ?</p>
+            <Link className='btn btn-dark' to='/signup'>Sign-Up Here</Link>
           </div>
         </form>
       </div>
-    </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MDBInput, MDBBtn, MDBValidation, MDBValidationItem } from 'mdb-react-ui-kit';
 import AlertBox from './AlertBox';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Registration({ onRegistration }) {
     const initialFormValue = {
@@ -68,11 +68,11 @@ export default function Registration({ onRegistration }) {
 
     return (
 
-        <div className="container w-50">
+        <div className="register container w-50 my-2">
             {isRegistered ? (<AlertBox type='success' msg='Registration Successfully' to='/Login' redirect='Login Here' />
             ) : (
-                <div className="row d-flex justify-content-center border border-danger  pb-5 mt-3 rounded-5">
-                    <h1 className='text-center my-3'>Registration Form</h1>
+                <div className="row d-flex justify-content-center mt-2 rounded-5">
+                    <h1 className='text-center my-1'>Registration Form</h1>
                     <MDBValidation className='row g-4 '>
                         <MDBValidationItem tooltip feedback='Please choose a First name.' invalid className='col-md-6'>
                             <MDBInput
@@ -148,6 +148,10 @@ export default function Registration({ onRegistration }) {
                         </div>
                         <div className='text-center col-6'>
                             <MDBBtn className='mx-3 btn btn-danger' type='button' onClick={resetForm}>Reset form</MDBBtn>
+                        </div>
+                        <div className='my-2 text-center'>
+                            <p className='text-danger'>Already Registered ?</p>
+                            <Link className='btn btn-dark' to='/login'>Login Here</Link>
                         </div>
                     </MDBValidation>
                 </div >

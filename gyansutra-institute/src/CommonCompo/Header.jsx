@@ -38,7 +38,7 @@ function Header() {
 
     return (
         <>
-            <MDBNavbar expand='sm' className='py-0 sticky-top' light style={{ backgroundColor: '#f1afdb' }}>
+            <MDBNavbar expand='sm' dark bgColor='dark' className='py-0 sticky-top'>
                 <MDBContainer fluid>
                     <MDBNavbarBrand tag={Link} to='/'>
                         <img src={logoUrl} width={180} height={60} alt="Logo" className="rounded-5 my-0 py-o logo" />
@@ -60,7 +60,7 @@ function Header() {
                         {userName ?
                             <>
                                 <MDBNavbarNav className=' me-auto mb-2 d-flex justify-content-end  mb-sm-0'>
-                                    <div className="text-dark text-center">
+                                    <div className=" text-warning text-center">
                                         {'Hello,'} <br /> {userName}
                                     </div>
                                     <MDBBtn onClick={Logout} className='mx-2' color='danger'>

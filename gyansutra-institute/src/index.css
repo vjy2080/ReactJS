@@ -1,5 +1,12 @@
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f1afdb;
+  background-color: rgb(180, 218, 233);
 }
 
+.register, .login {
+  background-color: rgba(255, 255, 255, 0.112);
+  box-shadow: 1px 1px 15px black;
+  border-radius: 10px;
+  outline: 1px solid black;
+  
+}
