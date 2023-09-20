@@ -19,9 +19,10 @@ export default function App() {
 
 
   return (
-    <div className="container my-3 ">
-      <div className="row">
-        <div className="col">
+    <div className="container my-3 w-100 px-5 mx-5 ">
+      <div className="row ">
+        <div className="col ">
+        <h1 className='text-center text-decoration-underline my-4'>Welcome to GyanSutra Institute</h1>
           <MDBCarousel showControls touch={false}>
             {Object.keys(imageUrls).map((key, index) => (
               <MDBCarouselItem
