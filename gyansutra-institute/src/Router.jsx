@@ -15,31 +15,31 @@ const Router = createBrowserRouter([
     {
         path: "/",
         element: <>
-            <Header /><Home />
+            <Home />
         </>,
     },
     {
         path: "/about",
         element: <>
-            <Header /><About />
+            <About />
         </>,
     },
     {
         path: "/signup",
         element: <>
-            <Header /><Signup />
+            <Signup />
         </>,
     },
     {
         path: "/login",
         element: <>
-            <Header /><Login />
+            <Login />
         </>,
     },
     {
         path: "/adminDash",
         element: <>
-            <Header /><AdminDash />
+           <Header/> <AdminDash />
         </>,
     },
 

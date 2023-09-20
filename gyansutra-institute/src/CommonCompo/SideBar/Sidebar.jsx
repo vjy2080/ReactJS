@@ -1,8 +1,23 @@
 import React from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
+    const navigate = useNavigate();
+    const capitalizeFirstLetter = (str) => {
+        if (!str || str.length === 0) {
+            return '';
+        }
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    };
+    const userName = capitalizeFirstLetter(Cookies.get('Name'));
+    const Logout = () => {
+        Cookies.remove("Name");
+        navigate('/Login')
+
+    };
+
     return (
         <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
             <div className="logo_details">
@@ -17,16 +32,16 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                     <span className="tooltip">Search</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <Link to="/">
                         <i className="bx bx-grid-alt"></i>
                         <span className="link_name">Dashboard</span>
-                    </a>
+                    </Link>
                     <span className="tooltip">Dashboard</span>
                 </li>
                 <li>
                     <a href="#">
                         <i className="bx bx-user"></i>
-                        <span className="link_name">User</span>
+                        <span className="link_name">About</span>
                     </a>
                     <span className="tooltip">User</span>
                 </li>
@@ -69,11 +84,11 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                     <div className="profile_details">
                         {/* <img src="profile.jpeg" alt="profile image" /> */}
                         <div className="profile_content">
-                            <div className="name">Anna Jhon</div>
-                            <div className="designation">Admin</div>
+                            <div className="name">{userName}</div>
+                            <div className="designation">{userName}</div>
                         </div>
                     </div>
-                    <i className="bx bx-log-out" id="log_out"></i>
+                    <i className="bx bx-log-out" id="log_out" onClick={Logout} ></i>
                 </li>
             </ul>
         </div>

@@ -14,10 +14,8 @@ const SidebarMenu = () => {
     return (
         <div className="container">
             <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-            <div className="home-bg-color">
-                <Slider />
-                <ContactUs />
-            </div>
+            <Slider />
+            <ContactUs />
         </div>
     );
 };
