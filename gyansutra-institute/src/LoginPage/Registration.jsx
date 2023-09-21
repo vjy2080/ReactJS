@@ -27,7 +27,7 @@ export default function Registration({ onRegistration }) {
     };
 
     const submitData = async () => {
-        const response = await fetch('http://localhost:3004/posts');
+        const response = await fetch('http://localhost:3004/user');
         const apiData = await response.json();
         const user = apiData.find(
             (userData) =>
@@ -43,7 +43,7 @@ export default function Registration({ onRegistration }) {
         if (!user) {
 
             try {
-                const response = await fetch('http://localhost:3004/posts', {
+                const response = await fetch('http://localhost:3004/user', {
                     method: 'post',
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8',

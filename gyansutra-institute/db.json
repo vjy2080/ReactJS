@@ -4,6 +4,15 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
+    }
+    ],
+
+
+  "user": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
     },
     {
       "formValue": {
@@ -29,5 +38,6 @@
       },
       "id": 3
     }
+    
   ]
 }

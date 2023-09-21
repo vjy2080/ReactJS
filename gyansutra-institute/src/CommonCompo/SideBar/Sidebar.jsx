@@ -39,45 +39,45 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                     <span className="tooltip">Dashboard</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <Link to="/about">
                         <i className="bx bx-user"></i>
                         <span className="link_name">About</span>
-                    </a>
+                    </Link>
                     <span className="tooltip">User</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <Link to="/">
                         <i className="bx bx-chat"></i>
                         <span className="link_name">Message</span>
-                    </a>
+                    </Link>
                     <span className="tooltip">Message</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <Link to="/">
                         <i className="bx bx-pie-chart-alt-2"></i>
                         <span className="link_name">Analytics</span>
-                    </a>
+                    </Link>
                     <span className="tooltip">Analytics</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <Link to="/">
                         <i className="bx bx-folder"></i>
                         <span className="link_name">File Manger</span>
-                    </a>
+                    </Link>
                     <span className="tooltip">File Manger</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <Link to="/">
                         <i className="bx bx-cart-alt"></i>
                         <span className="link_name">Order</span>
-                    </a>
+                    </Link>
                     <span className="tooltip">Order</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <Link to="/">
                         <i className="bx bx-cog"></i>
                         <span className="link_name">Settings</span>
-                    </a>
+                    </Link>
                     <span className="tooltip">Settings</span>
                 </li>
                 <li className="profile">

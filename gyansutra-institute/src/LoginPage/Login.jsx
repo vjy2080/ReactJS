@@ -21,7 +21,7 @@ export default function Login() {
 
     try {
       // Fetch the API data
-      const response = await fetch('http://localhost:3004/posts');
+      const response = await fetch('http://localhost:3004/user');
       if (!response.ok) {
         console.error('Failed to fetch data from the API.');
         return;
