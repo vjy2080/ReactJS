@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import './style.css';
-import Slider from '../Slider';
-import ContactUs from '../Contact';
 
 const SidebarMenu = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -14,8 +12,6 @@ const SidebarMenu = () => {
     return (
         <div className="container">
             <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-            <Slider />
-            <ContactUs />
         </div>
     );
 };

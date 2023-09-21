@@ -14,22 +14,15 @@
 // }
 
 
-import React, { useState } from 'react';
-import Sidebar from './SideBar/Sidebar';
+import React from 'react';
 import './SideBar/style.css';
 import Slider from './Slider';
 import ContactUs from './Contact';
 
 const Home = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    };
 
     return (
         <div className="container">
-            <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
             <Slider />
             <ContactUs />
         </div>
