@@ -11,6 +11,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
         return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     };
     const userName = capitalizeFirstLetter(Cookies.get('Name'));
+    const Role = parseInt(Cookies.get('Role'));
     const Logout = () => {
         Cookies.remove("Name");
         Cookies.remove("Role");
@@ -31,35 +32,39 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                     <input type="text" placeholder="Search..." />
                     <span className="tooltip">Search</span>
                 </li>
+                {Role === 1 ?
+                    (<li>
+                        <Link to="/adminDash">
+                            <i className="bx bx-user-check"></i>
+                            <span className="link_name">Admin Dashboard</span>
+                        </Link>
+                        <span className="tooltip">Admin Dashboard</span>
+                    </li>)
+                    : ("")
+                }
                 <li>
                     <Link to="/">
-                        <i className="bx bx-grid-alt"></i>
+                        <i className="bx bx-home-smile"></i>
                         <span className="link_name">Home</span>
                     </Link>
                     <span className="tooltip">Home</span>
                 </li>
                 <li>
                     <Link to="/about">
-                        <i className="bx bx-user"></i>
+                        <i className="bx bx-detail"></i>
                         <span className="link_name">About</span>
                     </Link>
                     <span className="tooltip">About</span>
                 </li>
                 <li>
                     <Link to="/contactUs">
-                        <i className="bx bx-chat"></i>
-                        <span className="link_name">Contact</span>
+                        <i className="bx bx-support"></i>
+                        <span className="link_name">Contact-Us</span>
                     </Link>
-                    <span className="tooltip">Contact</span>
+                    <span className="tooltip">Contact-Us</span>
                 </li>
-                <li>
-                    <Link to="/adminDash">
-                        <i className="bx bx-pie-chart-alt-2"></i>
-                        <span className="link_name">Admin Dashboard</span>
-                    </Link>
-                    <span className="tooltip">Admin Dashboard</span>
-                </li>
-                <li>
+
+                {/* <li>
                     <Link to="/">
                         <i className="bx bx-folder"></i>
                         <span className="link_name">File Manger</span>
@@ -72,10 +77,10 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                         <span className="link_name">Order</span>
                     </Link>
                     <span className="tooltip">Order</span>
-                </li>
+                </li> */}
                 <li>
                     <Link to="/login">
-                        <i className="bx bx-cog"></i>
+                        <i className="bx bx-log-in"></i>
                         <span className="link_name">Login</span>
                     </Link>
                     <span className="tooltip">Login</span>

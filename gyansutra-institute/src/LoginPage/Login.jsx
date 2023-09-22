@@ -70,8 +70,8 @@ export default function Login() {
       if (user) {
         // Call the onLogin function from the parent component
         console.log(user.formValue.fname);
+        const uname = user.formValue.fname
         console.log("Role_id :- ", user.formValue.role_id);
-        console.log('Login successful as user');
         setCookie('Name', user.formValue.fname);
         setCookie('Role', user.formValue.role_id);
 
@@ -80,18 +80,19 @@ export default function Login() {
         // Redirect to the home page ("/") after a successful login
         navigate('/');
       } else {
-        console.error('Check Username and password are correct.');
+        // console.error('Check Username and password are correct.');
+        alert("Check Username and password are correct.")
       }
 
     } catch (error) {
-      console.error('An error occurred:', error);
+      alert("Can't resolve server...", error);
     }
   };
 
 
 
   return (
-    <div className="login container w-50" >
+    <div id='login' className="login container w-50" >
       <div className="row d-flex justify-content-center pb-5 mt-3 rounded-5">
         <h3 className="text-center text-dark my-3">Please Login To Continue...</h3>
         <form onSubmit={handleSubmit}>
