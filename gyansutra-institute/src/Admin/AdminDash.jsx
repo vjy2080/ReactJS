@@ -11,23 +11,30 @@ const Dashboard = () => {
     return (
         userName ? (
             <>
-                <header>
-                    <h1 className='text-center border border-dark mb-0 py-1 bg-secondary'>Admin Dashboard</h1>
-                </header>
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
 
-                <div className=" border bg-warning p-2 border border-dark">
-                    <div className="row d-flex">
-                        <div className="col-md-3">
-                            <Sidebar />
-                        </div>
-                        <div className="col-md-9">
+                            <header>
+                                <h1 className='text-center border border-dark mb-0 py-1 bg-secondary'>Admin Dashboard</h1>
+                            </header>
 
-                            <div className="content">
-                                <UserStatistics />
-                                <hr className='my-3 hr hr-blurry' />
-                                <RecentActivity />
-                                <hr className='my-3 hr hr-blurry' />
-                                <Charts />
+                            <div className=" border bg-warning p-2 border border-dark">
+                                <div className="row d-flex">
+                                    <div className="col-md-3">
+                                        <Sidebar />
+                                    </div>
+                                    <div className="col-md-9">
+
+                                        <div className="content">
+                                            <UserStatistics />
+                                            <hr className='my-3 hr hr-blurry' />
+                                            <RecentActivity />
+                                            <hr className='my-3 hr hr-blurry' />
+                                            <Charts />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -42,6 +49,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
+
             </>
     );
 };

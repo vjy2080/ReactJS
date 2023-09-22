@@ -1,5 +1,4 @@
 import React from 'react';
-import './style.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
@@ -14,6 +13,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     const userName = capitalizeFirstLetter(Cookies.get('Name'));
     const Logout = () => {
         Cookies.remove("Name");
+        Cookies.remove("Role");
         navigate('/Login')
 
     };
@@ -34,30 +34,30 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                 <li>
                     <Link to="/">
                         <i className="bx bx-grid-alt"></i>
-                        <span className="link_name">Dashboard</span>
+                        <span className="link_name">Home</span>
                     </Link>
-                    <span className="tooltip">Dashboard</span>
+                    <span className="tooltip">Home</span>
                 </li>
                 <li>
                     <Link to="/about">
                         <i className="bx bx-user"></i>
                         <span className="link_name">About</span>
                     </Link>
-                    <span className="tooltip">User</span>
+                    <span className="tooltip">About</span>
                 </li>
                 <li>
-                    <Link to="/">
+                    <Link to="/contactUs">
                         <i className="bx bx-chat"></i>
-                        <span className="link_name">Message</span>
+                        <span className="link_name">Contact</span>
                     </Link>
-                    <span className="tooltip">Message</span>
+                    <span className="tooltip">Contact</span>
                 </li>
                 <li>
-                    <Link to="/">
+                    <Link to="/adminDash">
                         <i className="bx bx-pie-chart-alt-2"></i>
-                        <span className="link_name">Analytics</span>
+                        <span className="link_name">Admin Dashboard</span>
                     </Link>
-                    <span className="tooltip">Analytics</span>
+                    <span className="tooltip">Admin Dashboard</span>
                 </li>
                 <li>
                     <Link to="/">
@@ -74,11 +74,11 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                     <span className="tooltip">Order</span>
                 </li>
                 <li>
-                    <Link to="/">
+                    <Link to="/login">
                         <i className="bx bx-cog"></i>
-                        <span className="link_name">Settings</span>
+                        <span className="link_name">Login</span>
                     </Link>
-                    <span className="tooltip">Settings</span>
+                    <span className="tooltip">Login</span>
                 </li>
                 <li className="profile">
                     <div className="profile_details">

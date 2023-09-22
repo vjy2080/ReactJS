@@ -6,6 +6,7 @@ import Signup from './LoginPage/Registration';
 import Home from './CommonCompo/Home.jsx';
 import AdminDash from './Admin/AdminDash.jsx';
 import SidebarMenu from './CommonCompo/SideBar/SidebarMenu';
+import ContactUs from './CommonCompo/Contact.jsx';
 
 
 
@@ -25,6 +26,13 @@ const Router = createBrowserRouter([
         element: <>
             <SidebarMenu />
             <About />
+        </>,
+    },
+    {
+        path: "/contactUs",
+        element: <>
+            <SidebarMenu />
+            <ContactUs />
         </>,
     },
     {

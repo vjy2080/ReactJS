@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // import AlertBox from './AlertBox';
 import { useCookies } from 'react-cookie';
+import Loader from '../CommonCompo/Loader';
 
 export default function Login() {
   const [loginData, setLoginData] = useState({ uname: '', pw: '' });
@@ -22,6 +23,7 @@ export default function Login() {
     try {
       // Fetch the API data
       const response = await fetch('http://localhost:3004/user');
+      <Loader />
       if (!response.ok) {
         console.error('Failed to fetch data from the API.');
         return;
@@ -47,6 +49,7 @@ export default function Login() {
         console.log('Login successful As Admin');
         // setCookie('Name', admin.formValue.fname, { path: '/' });
         setCookie('Name', admin.formValue.fname);
+        setCookie('Role', admin.formValue.role_id);
 
         // Redirect to the home page ("/") after a successful login
         navigate('/adminDash');
@@ -70,6 +73,8 @@ export default function Login() {
         console.log("Role_id :- ", user.formValue.role_id);
         console.log('Login successful as user');
         setCookie('Name', user.formValue.fname);
+        setCookie('Role', user.formValue.role_id);
+
 
 
         // Redirect to the home page ("/") after a successful login

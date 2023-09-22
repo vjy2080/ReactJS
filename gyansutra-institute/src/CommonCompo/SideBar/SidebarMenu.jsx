@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
-import './style.css';
+import './SidebarStyle.css';
 
 const SidebarMenu = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);

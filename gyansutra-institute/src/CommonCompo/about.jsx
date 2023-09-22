@@ -7,7 +7,7 @@ export default function about() {
                 <div className="row">
                     <div className="col">
                         <div className="  px-5 py-2">
-                            <h1 className="text-center my-3">About-Us</h1>
+                            <h1 className="text-center text-primary my-3">About-Us</h1>
                             <p>
                                 Welcome to GyanSutra Institute, where education meets innovation and
                                 excellence. We are dedicated to providing a seamless and advanced
@@ -15,7 +15,7 @@ export default function about() {
                                 best educational resources and opportunities.
                             </p>
 
-                            <h2>Our Vision</h2>
+                            <h2 className='text-primary'>Our Vision</h2>
                             <p>
                                 At GyanSutra Institute, we envision a future where education is not
                                 bound by physical barriers, where students can access high-quality
@@ -24,7 +24,7 @@ export default function about() {
                                 students and educators.
                             </p>
 
-                            <h2>Our Mission</h2>
+                            <h2  className='text-primary'>Our Mission</h2>
                             <p>
                                 Our mission is to revolutionize the education sector by leveraging
                                 the latest technologies and providing a comprehensive online platform
@@ -33,7 +33,7 @@ export default function about() {
                                 their educational journey efficient and hassle-free.
                             </p>
 
-                            <h2>Key Features</h2>
+                            <h2  className='text-primary'>Key Features</h2>
                             <ul>
                                 <li>
                                     Online Registration: We offer a user-friendly online registration
