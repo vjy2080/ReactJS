@@ -1,73 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
-async function fetchUser(id) {
-    try {
-        const url = `http://localhost:3004/user/${id}`;
-        const response = await fetch(url);
-        const data = await response.json();
-
-        return data;
-    } catch (error) {
-        console.error('Error fetching user data:', error);
-        throw error;
-    }
-}
-
-async function updateUser(id, updatedUserData) {
-    try {
-        const url = `http://localhost:3004/user/${id}`;
-        const response = await fetch(url, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(updatedUserData),
-        });
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error updating user data:', error);
-        throw error;
-    }
-}
-
-function EditUserForm({ showModal, handleCloseModal, userId }) {
-    const [editedUserData, setEditedUserData] = useState({
-        fname: '',
-        uname: '',
-        pw: '',
-    });
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const data = await fetchUser(userId);
-                setEditedUserData(data); // Set the fetched data into state
-            } catch (error) {
-                // Handle errors
-            }
-        }
-
-        fetchData();
-    }, [userId]);
+function EditUserForm({ showModal, handleCloseModal, user }) {
+    const [editedUser, setEditedUser] = useState(user);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setEditedUserData((prev) => ({
+        setEditedUser((prev) => ({
             ...prev,
             [name]: value,
         }));
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     const handleSaveChanges = async () => {
         try {
-            await updateUser(userId, editedUserData);
+            const response = await fetch(`http://localhost:3004/user/${editedUser.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(editedUser),
+            });
+
+            if (response.ok) {
+                console.log('User updated successfully!');
+            } else {
+                console.error('Failed to update user:', response.statusText);
+            }
+
             handleCloseModal();
         } catch (error) {
-            // Handle errors
+            console.error('Error updating user:', error);
         }
     };
+
 
     return (
         <Modal show={showModal} onHide={handleCloseModal}>
@@ -81,7 +52,17 @@ function EditUserForm({ showModal, handleCloseModal, userId }) {
                         <Form.Control
                             type="text"
                             name="fname"
-                            value={editedUserData.fname || ''}
+                            value={editedUser.fname || ''}
+                            onChange={handleInputChange}
+                        />
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicLastName">
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="lname"
+                            value={editedUser.lname || ''}
                             onChange={handleInputChange}
                         />
                     </Form.Group>
@@ -91,24 +72,65 @@ function EditUserForm({ showModal, handleCloseModal, userId }) {
                         <Form.Control
                             type="email"
                             name="uname"
-                            value={editedUserData.uname || ''}
+                            value={editedUser.uname || ''}
                             onChange={handleInputChange}
                         />
                     </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
+                    {/* <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control
                             type="password"
                             name="pw"
-                            value={editedUserData.pw || ''}
+                            value={editedUser.pw || ''}
+                            onChange={handleInputChange}
+                        />
+                    </Form.Group> */}
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <div className="password-input-container d-flex align-items-center">
+                            <Form.Control
+                                type={showPassword ? 'text' : 'password'}
+                                name="pw"
+                                value={editedUser.pw || ''}
+                                onChange={handleInputChange}
+                            />
+
+                            <i
+                                className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'
+                                    } password-toggle-icon + p-2  border border-info bg-info rounded`}
+                                onClick={togglePasswordVisibility}
+                            />
+
+                        </div>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicCity">
+                        <Form.Label>City</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="city"
+                            value={editedUser.city || ''}
+                            onChange={handleInputChange}
+                        />
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicZip">
+                        <Form.Label>ZIP Code</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="zip"
+                            value={editedUser.zip || ''}
                             onChange={handleInputChange}
                         />
                     </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-
+                <Button variant="secondary" onClick={handleCloseModal}>
+                    Close
+                </Button>
                 <Button variant="primary" onClick={handleSaveChanges}>
                     Save Changes
                 </Button>

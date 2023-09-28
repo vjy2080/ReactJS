@@ -1,78 +1,123 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Modal, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import EditUserForm from './EditUserForm';
 
 export default function AllUsers() {
-  const [apiData, setApiData] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+    const [apiData, setApiData] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null);
+    const [deleteUser, setDeleteUser] = useState(null);
 
-  const navigate = useNavigate();
 
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
+    const handleOpenModal = () => {
+        setShowModal(true);
+    };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
 
-  const updateUserData = () => {
-    console.log("Edit called");
-    handleOpenModal();
-  };
+    const updateUserData = (user) => {
+        console.log('Edit called');
+        setSelectedUser(user);
+        handleOpenModal();
+    };
 
-  const getDatas = async () => {
-    try {
-      const url = "http://localhost:3004/user";
-      const response = await fetch(url);
-      const data = await response.json();
+    const handleDelete = async (user) => {
+        setDeleteUser(user)
+        console.log(user.role_id)
 
-      const allUsersList = data.map((val) => (
-        (val.id > 0) ?
-          (<tr key={val.id}>
-            <td>{val.id}</td>
-            <td>{val.fname}</td>
-            <td>{val.uname}</td>
-            <td>{val.pw}</td>
-            <td>
-              <button className='btn btn-sm btn-primary' onClick={updateUserData}>
-                Edit
-              </button>
-              &nbsp;
-              <button className='btn btn-sm btn-danger'>Delete</button>
-            </td>
-          </tr>) : ''
-      ));
+        try {
+            (user.role_id == 2) ? setDeleteUser(user) : setDeleteUser(null);
+            const response = await fetch(`http://localhost:3004/user/${deleteUser.id}`, {
+                method: 'delete',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(setDeleteUser),
+            });
 
-      setApiData(allUsersList);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+            if (response.ok) {
+                console.log('User Deleted successfully!');
+            } else {
+                console.error('Failed to update user:', response.statusText);
+            }
 
-  useEffect(() => {
-    getDatas();
-  }, []);
+            handleCloseModal();
+        } catch (error) {
+            console.error('Error updating user:', error);
+        }
+    };
 
-  return (
-    <>
-      <Table className="table table-dark table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>{apiData}</tbody>
-      </Table>
 
-      {showModal && (
-        <EditUserForm showModal={showModal} handleCloseModal={handleCloseModal} />
-      )}
-    </>
-  );
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:3004/user');
+                const data = await response.json();
+                setApiData(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, [updateUserData, handleDelete]);
+
+    const allUsersList = apiData.map((val, key) => (
+        (key > 0) ? (
+            <tr key={val.id}>
+                <td>{val.id}</td>
+                <td>{val.fname}</td>
+                <td>{val.uname}</td>
+                <td>{val.pw}</td>
+                <td>
+                    <button
+                        className="btn btn-sm btn-primary"
+                        onClick={() => updateUserData(val)}
+                    >
+                        Edit
+                    </button>
+                    &nbsp;
+
+                    <button className="btn btn-sm btn-danger"
+                        onClick={() => handleDelete(val)}
+                        disabled={(val.role_id == 1) ? true : false}
+                    >Delete</button>
+
+                </td>
+            </tr>) : ("")
+    ));
+
+
+    return (
+        <><div className="container ">
+            <div className="row">
+                <div className="col ">
+                    <Table className="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>{allUsersList}</tbody>
+                    </Table>
+
+                </div>
+            </div>
+        </div>
+
+            {selectedUser && (
+                <EditUserForm
+                    showModal={showModal}
+                    handleCloseModal={handleCloseModal}
+                    user={selectedUser}
+                />
+            )}
+        </>
+    );
 }
