@@ -69,7 +69,7 @@ export default function Registration({ onRegistration }) {
 
 
         } else {
-            console.error('Already Registered.');
+            alert('Already Registered.');
             navigate('/Login');
         }
     };

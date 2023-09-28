@@ -5,8 +5,8 @@ import Loader from '../CommonCompo/Loader';
 
 export default function Login() {
   const [loginData, setLoginData] = useState({
-    uname: 'vjy2080@gmail.com',
-    pw: 'vjy'
+    uname: '',
+    pw: ''
   });
   const navigate = useNavigate();
   const [, setCookie] = useCookies(['user']);
