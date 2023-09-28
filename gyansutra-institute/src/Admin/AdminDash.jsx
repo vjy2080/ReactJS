@@ -22,7 +22,7 @@ const Dashboard = () => {
     }, [toastDisplayed]);
 
     return (
-        Role == 1 ? (
+        Role === 1 ? (
             <>
                 <ToastContainer
                     newestOnTop={false}

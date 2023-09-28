@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Modal, Button } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import EditUserForm from './EditUserForm';
 
 export default function AllUsers() {
