@@ -7,6 +7,7 @@ import Home from './CommonCompo/Home.jsx';
 import AdminDash from './Admin/AdminDash.jsx';
 import SidebarMenu from './CommonCompo/SideBar/SidebarMenu';
 import ContactUs from './CommonCompo/Contact.jsx';
+import EditUserForm from './Admin/Dashboard/EditUserForm.jsx';
 
 
 
@@ -55,7 +56,17 @@ const Router = createBrowserRouter([
             <SidebarMenu />
             <AdminDash />
         </>,
+        children: [
+            {
+                path: "EditUserForm",
+                element: <>
+                    <SidebarMenu />
+                    <EditUserForm />
+                </>
+            }
+        ],
     },
+
 
 ]);
 
