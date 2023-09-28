@@ -39,7 +39,6 @@ export default function Registration({ onRegistration }) {
             (userData) =>
                 userData.uname === formValue.uname
         );
-        // console.log(user);
 
         if (!newuser) {
             try {
@@ -59,17 +58,14 @@ export default function Registration({ onRegistration }) {
                         onRegistration(newuser.uname);
                     }
                 }
-                 else {
+                else {
                     console.error('Registration failed.');
                 }
-            // } catch (error) {
-            //     console.error('An error occurred:', error);
-            // }
 
-        } catch (error) {
-            console.error('An error occurred:', error);
-            console.error('Error response:', error.response); // Log the error response
-        }
+            } catch (error) {
+                console.error('An error occurred:', error);
+                console.error('Error response:', error.response); // Log the error response
+            }
 
 
         } else {

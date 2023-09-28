@@ -9,7 +9,7 @@ export default function Login() {
     pw: 'vjy'
   });
   const navigate = useNavigate();
-  const [cookies, setCookie] = useCookies(['user']);
+  const [, setCookie] = useCookies(['user']);
 
   useEffect(() => {
     document.body.style.backgroundColor = "rgb(180, 218, 233)"
@@ -34,7 +34,7 @@ export default function Login() {
 
       // Parse the API response into JSON
       const apiData = await response.json();
-      console.log('API Data:', apiData);
+      // console.log('API Data:', apiData);
 
       // Find a user in the API data whose username and password match the entered values
       const user = apiData.find(
@@ -43,52 +43,15 @@ export default function Login() {
           (userData.formValue && userData.formValue.uname === loginData.uname && userData.formValue.pw === loginData.pw && userData.formValue.role_id === "2") // Check for nested user data
       );
 
-      console.log('Found User:', user);
-
-      // if (user) {
-      //   // Check if user is defined and has fname
-      //   const userFname = user.fname || 'Unknown';
-
-      //   console.log(userFname);
-      //   const uname = user.fname || 'Unknown';
-      //   console.log("Role_id :- ", user.role_id);
-      //   setCookie('Name', uname);
-      //   setCookie('Role', user.role_id);
-
-      //   // Redirect to the home page ("/") after a successful login
-      //   navigate('/');
-      // } else {
-      //   console.error('User not found or missing data.');
-      //   alert("User not found or missing data.");
-      // }
-
-      // if (user) {
-      //   // Call the onLogin function from the parent component
-      //   console.log(user.formValue.fname);
-      //   const uname = user.formValue.fname
-      //   console.log("Role_id :- ", user.formValue.role_id);
-      //   setCookie('Name', user.formValue.fname);
-      //   setCookie('Role', user.formValue.role_id);
-
-      //   // Redirect to the home page ("/") after a successful login
-      //   navigate('/');
-      // } else {
-      //   // console.error('Check Username and password are correct.');
-      //   alert("Check Username and password are correct.")
-      // }
-
-      // } catch (error) {
-      //   alert("Can't resolve server...", error);
-      // }
-
+      // console.log('Found User:', user);
 
       if (user) {
         // Check if user is defined and has fname
-        const userFname = user.fname || 'Unknown';
+        // const userFname = user.fname || 'Unknown';
 
-        console.log(userFname);
+        // console.log(userFname);
         const uname = user.fname || 'Unknown';
-        console.log("Role_id :- ", user.role_id);
+        // console.log("Role_id :- ", user.role_id);
         setCookie('Name', uname);
         setCookie('Role', user.role_id);
 
@@ -108,52 +71,52 @@ export default function Login() {
 
 
 
-    return (
-      <div id='login' className="login container w-50" >
-        <div className="row d-flex justify-content-center pb-5 mt-3 rounded-5">
-          <h3 className="text-center text-dark my-3">Please Login To Continue...</h3>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label htmlFor="uname" className="text-dark text-center w-100 fw-bold form-label">
-                Username (Email)
-              </label>
-              <input
-                type="email"
-                className="form-control w-50 text-center mx-auto"
-                id="uname"
-                name="uname"
-                value={loginData.uname}
-                onChange={handleChange}
-                required
-                autoComplete="username"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="pw" className="text-dark text-center w-100 fw-bold form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control  w-50 text-center mx-auto"
-                id="pw"
-                name="pw"
-                value={loginData.pw}
-                onChange={handleChange}
-                required
-                autoComplete="current-password"
-              />
-            </div>
-            <div className="text-center">
-              <button type="submit" className=" btn btn-primary">
-                Login
-              </button>
-            </div>
-            <div className='my-2 text-center'>
-              <p className='text-danger'>Don't have an account yet ?</p>
-              <Link className='btn btn-dark' to='/signup'>Sign-Up Here</Link>
-            </div>
-          </form>
-        </div>
+  return (
+    <div id='login' className="login container w-50" >
+      <div className="row d-flex justify-content-center pb-5 mt-3 rounded-5">
+        <h3 className="text-center text-dark my-3">Please Login To Continue...</h3>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="uname" className="text-dark text-center w-100 fw-bold form-label">
+              Username (Email)
+            </label>
+            <input
+              type="email"
+              className="form-control w-50 text-center mx-auto"
+              id="uname"
+              name="uname"
+              value={loginData.uname}
+              onChange={handleChange}
+              required
+              autoComplete="username"
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="pw" className="text-dark text-center w-100 fw-bold form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control  w-50 text-center mx-auto"
+              id="pw"
+              name="pw"
+              value={loginData.pw}
+              onChange={handleChange}
+              required
+              autoComplete="current-password"
+            />
+          </div>
+          <div className="text-center">
+            <button type="submit" className=" btn btn-primary">
+              Login
+            </button>
+          </div>
+          <div className='my-2 text-center'>
+            <p className='text-danger'>Don't have an account yet ?</p>
+            <Link className='btn btn-dark' to='/signup'>Sign-Up Here</Link>
+          </div>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
+}
