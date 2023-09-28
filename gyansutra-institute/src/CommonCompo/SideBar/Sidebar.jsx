@@ -39,6 +39,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                             <span className="link_name">Admin Dashboard</span>
                         </Link>
                         <span className="tooltip">Admin Dashboard</span>
+                        
                     </li>)
                     : ("")
                 }

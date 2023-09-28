@@ -1,28 +1,39 @@
 import React from 'react';
 import UserStatistics from './Dashboard/UserStatistics';
 import RecentActivity from './Dashboard/RecentActivity'
-import Sidebar from './Sidebar';
+// import Sidebar from './Sidebar';
 import Charts from './Dashboard/Charts';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
+import SidebarMenu from '../CommonCompo/SideBar/SidebarMenu';
+import AllUsers from './Dashboard/AllUsers';
 
 const Dashboard = () => {
-    const userName = (Cookies.get('Name'));
+    // const userName = (Cookies.get('Name'));
+    const Role = parseInt(Cookies.get('Role'));
+
     return (
-        userName ? (
+        Role == 1 ? (
             <>
-                <div className="container">
+                <SidebarMenu />
+                <div className="w-100">
                     <div className="row">
                         <div className="col">
 
                             <header>
                                 <h1 className='text-center border border-dark mb-0 py-1 bg-secondary'>Admin Dashboard</h1>
                             </header>
-
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col">
+                                        <AllUsers />
+                                    </div>
+                                </div>
+                            </div>
                             <div className=" border bg-warning p-2 border border-dark">
                                 <div className="row d-flex">
                                     <div className="col-md-3">
-                                        <Sidebar />
+                                        {/* <Sidebar /> */}
                                     </div>
                                     <div className="col-md-9">
 
@@ -44,7 +55,7 @@ const Dashboard = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col text-center my-5">
-                            <h1 className='text-danger'>Login First to continue...</h1>
+                            <h1 className='text-danger'>Login as an Admin to continue...</h1>
                             <Link className='btn btn-primary' to='/login'>Login Here</Link>
                         </div>
                     </div>

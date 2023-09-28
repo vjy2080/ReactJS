@@ -4,8 +4,7 @@ import AlertBox from './AlertBox';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Registration({ onRegistration }) {
-    const navigate = useNavigate();
-    const [formValue, setFormValue] = useState({
+    const initialFormValue = {
         fname: '',
         lname: '',
         uname: '',
@@ -13,23 +12,18 @@ export default function Registration({ onRegistration }) {
         city: '',
         zip: '',
         role_id: '2'
-    });
+    };
+    const navigate = useNavigate();
+    const [formValue, setFormValue] = useState(initialFormValue);
     const [isRegistered, setIsRegistered] = useState(false);
+
 
     const onChange = (e) => {
         setFormValue({ ...formValue, [e.target.name]: e.target.value });
     };
 
     const resetForm = () => {
-        setFormValue({
-            fname: '',
-            lname: '',
-            uname: '',
-            pw: '',
-            city: '',
-            zip: '',
-            role_id: '2'
-        });
+        setFormValue(initialFormValue);
     };
 
     const submitData = async () => {
@@ -37,28 +31,34 @@ export default function Registration({ onRegistration }) {
         const apiData = await response.json();
         const user = apiData.find(
             (userData) =>
-                userData.uname === formValue.uname
-        );
-        // console.log(user);
 
+                // Check for direct user data
+                (userData.uname === formValue.uname) ||
+
+                // Check for nested user data
+                (userData.formValue && userData.formValue.uname === formValue.uname)
+        );
+        // console.log('checkData', checkData);
+        console.log('user', user);
         if (!user) {
+
             try {
                 const response = await fetch('http://localhost:3004/user', {
                     method: 'post',
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8',
                     },
-                    body: JSON.stringify(formValue),
+                    body: JSON.stringify({ formValue }),
                 });
 
                 if (response.ok) {
                     setIsRegistered(true);
-                    onRegistration(formValue.uname);
+                    onRegistration(formValue.uname); // Notify the parent component about the registration
                 } else {
                     console.error('Registration failed.');
                 }
             } catch (error) {
-                console.error('An error occurred:', error);
+                // console.error('An error occurred:', error);
             }
         } else {
             console.error('Already Registered.');
@@ -67,9 +67,9 @@ export default function Registration({ onRegistration }) {
     };
 
     return (
+
         <div className="register container w-50 my-2">
-            {isRegistered ? (
-                <AlertBox type='success' msg='Registration Successfully' to='/Login' redirect='Login Here' />
+            {isRegistered ? (<AlertBox type='success' msg='Registration Successfully' to='/Login' redirect='Login Here' />
             ) : (
                 <div className="row d-flex justify-content-center mt-2 rounded-5">
                     <h1 className='text-center my-1'>Registration Form</h1>
@@ -106,6 +106,7 @@ export default function Registration({ onRegistration }) {
                                 label='Username'
                                 type='email'
                                 autoComplete="username"
+
                             />
                         </MDBValidationItem>
                         <MDBValidationItem tooltip feedback='Please choose a password.' invalid className='col-md-6'>
@@ -118,6 +119,8 @@ export default function Registration({ onRegistration }) {
                                 label='Password'
                                 type='password'
                                 autoComplete="current-password"
+
+
                             />
                         </MDBValidationItem>
                         <MDBValidationItem tooltip feedback='Please provide a valid city.' invalid className='col-md-6'>
@@ -151,8 +154,9 @@ export default function Registration({ onRegistration }) {
                             <Link className='btn btn-dark' to='/login'>Login Here</Link>
                         </div>
                     </MDBValidation>
-                </div>
-            )}
-        </div>
+                </div >
+            )
+            }
+        </div >
     );
 }
