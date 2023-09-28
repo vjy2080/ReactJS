@@ -30,24 +30,14 @@
       "id": 2
     },
     {
-      "fname": "VIJAYKUMAR",
+      "fname": "Bhavna",
       "lname": "PRAJAPATI",
-      "uname": "vjy2080@gmail.coma",
-      "pw": "aaa",
+      "uname": "bvp2080@gmail.com",
+      "pw": "bvp",
       "city": "Vavol, Gandhinagar ",
       "zip": "382016",
       "role_id": "2",
       "id": 3
-    },
-    {
-      "fname": "VIJAYKUMAR",
-      "lname": "PRAJAPATI",
-      "uname": "vjy2080@gmail.comD",
-      "pw": "DDD",
-      "city": "Vavol, Gandhinagar ",
-      "zip": "382016",
-      "role_id": "2",
-      "id": 4
     }
   ]
 }

@@ -35,13 +35,13 @@ export default function Registration({ onRegistration }) {
     const submitData = async () => {
         const response = await fetch('http://localhost:3004/user');
         const apiData = await response.json();
-        const user = apiData.find(
+        const newuser = apiData.find(
             (userData) =>
                 userData.uname === formValue.uname
         );
         // console.log(user);
 
-        if (!user) {
+        if (!newuser) {
             try {
                 const response = await fetch('http://localhost:3004/user', {
                     method: 'post',
@@ -53,13 +53,25 @@ export default function Registration({ onRegistration }) {
 
                 if (response.ok) {
                     setIsRegistered(true);
-                    onRegistration(formValue.uname);
-                } else {
+                    // onRegistration(newuser.uname);
+
+                    if (newuser) {
+                        onRegistration(newuser.uname);
+                    }
+                }
+                 else {
                     console.error('Registration failed.');
                 }
-            } catch (error) {
-                console.error('An error occurred:', error);
-            }
+            // } catch (error) {
+            //     console.error('An error occurred:', error);
+            // }
+
+        } catch (error) {
+            console.error('An error occurred:', error);
+            console.error('Error response:', error.response); // Log the error response
+        }
+
+
         } else {
             console.error('Already Registered.');
             navigate('/Login');
