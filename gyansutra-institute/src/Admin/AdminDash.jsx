@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import UserStatistics from './Dashboard/UserStatistics';
 import RecentActivity from './Dashboard/RecentActivity'
-// import Sidebar from './Sidebar';
 import Charts from './Dashboard/Charts';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import SidebarMenu from '../CommonCompo/SideBar/SidebarMenu';
 import AllUsers from './Dashboard/AllUsers';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Dashboard = () => {
-    // const userName = (Cookies.get('Name'));
     const Role = parseInt(Cookies.get('Role'));
+    const [toastDisplayed, setToastDisplayed] = useState(false);
+
+    useEffect(() => {
+        const hasDisplayedToast = localStorage.getItem('hasDisplayedToast');
+        if (!toastDisplayed && hasDisplayedToast !== 'true') {
+            toast.success("Logged-In Successfully as 'Admin'");
+            localStorage.setItem('hasDisplayedToast', 'true');
+            setToastDisplayed(true);
+        }
+    }, [toastDisplayed]);
 
     return (
         Role == 1 ? (
             <>
+                <ToastContainer
+                    newestOnTop={false}
+                    rtl={false}
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    closeOnClick
+                    pauseOnHover={false}
+                    draggable
+                    theme="dark"
+                    pauseOnFocusLoss={false}
+                />
                 <SidebarMenu />
                 <div className="w-100">
                     <div className="row">

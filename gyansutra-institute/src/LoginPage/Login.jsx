@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import Loader from '../CommonCompo/Loader';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [loginData, setLoginData] = useState({
@@ -51,15 +54,19 @@ export default function Login() {
 
         // console.log(userFname);
         const uname = user.fname || 'Unknown';
-        // console.log("Role_id :- ", user.role_id);
+        console.log("Role_id :- ", user.role_id);
         setCookie('Name', uname);
         setCookie('Role', user.role_id);
 
-        // Redirect to the home page ("/") after a successful login
-        navigate('/');
+        // Redirect to the home page ("/") after a successful login as user or redirect to adminDash if login as admin
+        (user.role_id === "1") ? navigate('/adminDash') : navigate('/');
+        localStorage.setItem('hasDisplayedToast', 'false');
+
       } else {
-        console.error('User not found or missing data.');
-        alert("User not found or missing data.");
+        toast.error("The username or password is incorrect try again.");
+
+        // console.error('User not found or missing data.');
+        // alert("User not found or missing data.");
       }
     }
     catch (error) {
@@ -73,6 +80,18 @@ export default function Login() {
 
   return (
     <div id='login' className="login container w-50" >
+      <ToastContainer
+        newestOnTop={false}
+        rtl={false}
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover={false}
+        draggable
+        theme="dark"
+        pauseOnFocusLoss={false}
+      />
       <div className="row d-flex justify-content-center pb-5 mt-3 rounded-5">
         <h3 className="text-center text-dark my-3">Please Login To Continue...</h3>
         <form onSubmit={handleSubmit}>
