@@ -43,7 +43,7 @@ const Dashboard = () => {
                             <header>
                                 <h1 className='text-center border border-dark mb-0 py-1 bg-secondary'>Admin Dashboard</h1>
                             </header>
-                                        <AllUsers />
+                            <AllUsers />
                             <div className="container">
                                 <div className="row">
                                     <div className="col">
@@ -52,17 +52,21 @@ const Dashboard = () => {
                             </div>
                             <div className=" border bg-warning p-2 border border-dark">
                                 <div className="row d-flex">
-                                    <div className="col-md-3">
-                                        {/* <Sidebar /> */}
+                                    <div className="col-md-1">
                                     </div>
-                                    <div className="col-md-9">
+                                    <div className="col-md-11">
 
                                         <div className="content">
                                             <UserStatistics />
                                             <hr className='my-3 hr hr-blurry' />
-                                            <RecentActivity />
+                                            <div className=" d-flex justify-content-center">
+                                                <RecentActivity />
+                                            </div>
                                             <hr className='my-3 hr hr-blurry' />
-                                            <Charts />
+                                            <h2 className='text-center mt-5 mb-3 text-dark'>Student's registration month-wise</h2>
+                                            <div className="d-flex justify-content-center">
+                                                <Charts />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

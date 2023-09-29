@@ -19,10 +19,10 @@ const data = [
 const LineChartComponent = () => {
   return (
     <LineChart className='mt-5' width={800} height={300} data={data}>
-      <XAxis dataKey="name" />
-      <YAxis />
-      <CartesianGrid stroke="#f5f5f5" />
-      <Line type="monotone" dataKey="Students" stroke="#8884d8" />
+      <XAxis dataKey="name" stroke='purple' />
+      <YAxis stroke='purple' />
+      <CartesianGrid stroke="black" />
+      <Line type="monotone" dataKey="Students" stroke="red" />
       <Tooltip />
       <Legend />
     </LineChart>
