@@ -63,27 +63,27 @@ export default function AllUsers() {
 
         fetchData();
     }, [updateUserData, handleDelete]);
-
     const allUsersList = apiData.map((val, key) => (
         (key > 0) ? (
             <tr key={val.id}>
                 <td>{val.id}</td>
+                <td>{(val.role_id == 2) ? "User" : "Admin"}</td>
                 <td>{val.fname}</td>
                 <td>{val.uname}</td>
                 <td>{val.pw}</td>
                 <td>
                     <button
                         className="btn btn-sm btn-primary"
-                        onClick={() => updateUserData(val)}
-                    >
-                        Edit
+                        onClick={() => updateUserData(val)}>
+                        <i className="fa fa-edit"></i>
                     </button>
                     &nbsp;
 
                     <button className="btn btn-sm btn-danger"
                         onClick={() => handleDelete(val)}
-                        disabled={(val.role_id == 1) ? true : false}
-                    >Delete</button>
+                        disabled={(val.role_id == 1) ? true : false}>
+                        <i className="fa fa-trash"></i>
+                    </button>
 
                 </td>
             </tr>) : ("")
@@ -91,15 +91,19 @@ export default function AllUsers() {
 
 
     return (
-        <><div className="container ">
-            <div className="row">
-                <div className="col ">
-                    <Table className="table table-dark table-striped">
-                        <thead>
+        <>
+            {/* <div className="container "> */}
+            <div className="row bg-dark p-3 ">
+                <h4 className='text-center text-info mb-0'>List of Users</h4>
+                <div className="col mr-5">
+
+                    <Table className="text-center border border-warning m-5 table table-dark table-striped">
+                        <thead className='text-warning fs-5'>
                             <tr>
                                 <th>ID</th>
+                                <th>Type</th>
                                 <th>First Name</th>
-                                <th>Username</th>
+                                <th>User Name</th>
                                 <th>Password</th>
                                 <th>Actions</th>
                             </tr>
@@ -109,7 +113,7 @@ export default function AllUsers() {
 
                 </div>
             </div>
-        </div>
+            {/* </div> */}
 
             {selectedUser && (
                 <EditUserForm

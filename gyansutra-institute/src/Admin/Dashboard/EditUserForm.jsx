@@ -128,9 +128,7 @@ function EditUserForm({ showModal, handleCloseModal, user }) {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleCloseModal}>
-                    Close
-                </Button>
+                
                 <Button variant="primary" onClick={handleSaveChanges}>
                     Save Changes
                 </Button>

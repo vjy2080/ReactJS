@@ -36,7 +36,6 @@ const Dashboard = () => {
                     theme="dark"
                     pauseOnFocusLoss={false}
                 />
-                <SidebarMenu />
                 <div className="w-100">
                     <div className="row">
                         <div className="col">
@@ -44,10 +43,10 @@ const Dashboard = () => {
                             <header>
                                 <h1 className='text-center border border-dark mb-0 py-1 bg-secondary'>Admin Dashboard</h1>
                             </header>
+                                        <AllUsers />
                             <div className="container">
                                 <div className="row">
                                     <div className="col">
-                                        <AllUsers />
                                     </div>
                                 </div>
                             </div>

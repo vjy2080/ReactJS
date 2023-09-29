@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+// import LogoImg from ''
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     const navigate = useNavigate();
@@ -22,8 +23,12 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     return (
         <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
             <div className="logo_details">
-                <i className="bx bxl-audible icon"></i>
-                <div className="logo_name">GyanSutra</div>
+                {/* <i className="bx bxl-audible icon"></i> */}
+                <div className="logo_name mx-auto mt-3 ">
+                    {/* GyanSutra */}
+                    <img className='rounded-5' src="./Logo.webp" height={50} alt="profile image" />
+
+                </div>
                 <i className={`bx ${isSidebarOpen ? 'bx-menu' : 'bx-menu-alt-right'}`} id="btn" onClick={toggleSidebar}></i>
             </div>
             <ul className="side-nav-list">
@@ -39,7 +44,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                             <span className="link_name">Admin Dashboard</span>
                         </Link>
                         <span className="tooltip">Admin Dashboard</span>
-                        
+
                     </li>)
                     : ("")
                 }
@@ -91,7 +96,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                         {/* <img src="profile.jpeg" alt="profile image" /> */}
                         <div className="profile_content">
                             <div className="name">{userName}</div>
-                            <div className="designation">{userName}</div>
+                            <div className="designation">{(Role === 2 ? "User" : (Role === 1) ? "Admin" : "")}</div>
                         </div>
                     </div>
                     <i className="bx bx-log-out" id="log_out" onClick={Logout} ></i>
