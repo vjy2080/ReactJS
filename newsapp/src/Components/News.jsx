@@ -15,23 +15,22 @@ const News = (props) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
+  
 
 
   const updateNews = async () => {
     props.setProgress(10);
     setPage(page + 1)
     const url = `https://newsapi.org/v2/top-headlines?&country=${props.country}&category=${props.category}&apiKey=c9aa8a5802bb4e1998ce842b51b2905a&page=${page}&pageSize=${props.pageSize}`;
-    setLoading(true)
+    // setLoading(true)
     let data = await fetch(url);
     props.setProgress(50);
     let parsedData = await data.json();
     props.setProgress(70);
     setArticles(parsedData.articles)
     setTotalResults(parsedData.totalResults)
-    setLoading(false)
     props.setProgress(100);
-
-
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -47,6 +46,7 @@ const News = (props) => {
     setArticles(articles.concat(parsedData.articles))
     setTotalResults(parsedData.totalResults)
 
+    setLoading(false)
   };
 
   return (
