@@ -3,4 +3,5 @@ import { combineReducers } from "redux"
 
 
 console.log("root reducer");
+
 export default combineReducers({ users });
