@@ -5,6 +5,10 @@ const getAll = () => {
     console.log("called inside user service");
     return httpanything.get("users")
 }
+const getUserLogin = (username, password) => {
+    console.log("called inside user service");
+    return httpanything.get(`users?username=${username}&password=${password}`)
+}
 const selectUserByid = () => {
     console.log("called inside user service");
     return httpanything.patch("users/2")
@@ -15,7 +19,7 @@ const deleteUserByid = () => {
 }
 
 const UserService = {
-    getAll, selectUserByid, deleteUserByid
+    getAll, selectUserByid, deleteUserByid, getUserLogin
 }
 
 export default UserService;

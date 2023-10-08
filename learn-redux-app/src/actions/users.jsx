@@ -14,11 +14,11 @@ export const retierveUsers = () => async (dispatch) => {
 
     // return dispatch({ type: RETRIVE_ALL_USERS, payload: { "data": "anything" } })
 }
-// export const loginUsers = (uname,pass) => async (dispatch) => {
-//     // console.log("actions retierveUsers",UserService);
-//     // const
-//     const ResData = await UserService.getUserLogin(uname,pass);
-//     console.log("action resdata",ResData);
-//     return dispatch({ type: "RETRIVE_LOGIN_USERS", payload: ResData })
-//     // return dispatch({ type: RETRIVE_ALL_USERS, payload: { "data": "anything" } })
-// }
+export const loginUsers = (uname,pass) => async (dispatch) => {
+    // console.log("actions retierveUsers",UserService);
+    // const
+    const ResData = await UserService.getUserLogin(uname,pass);
+    console.log("action resdata",ResData);
+    return dispatch({ type: "RETRIVE_LOGIN_USERS", payload: ResData })
+    // return dispatch({ type: RETRIVE_ALL_USERS, payload: { "data": "anything" } })
+}
