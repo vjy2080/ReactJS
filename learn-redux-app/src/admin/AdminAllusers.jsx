@@ -1,9 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {
+    Link
+    // , useNavigate
+} from 'react-router-dom';
 
 const AdminAllusers = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [errorMsg, setErrorMsg] = useState(false);
     const [loader, setLoader] = useState(false);
     const [allUsers, setAllUsers] = useState(false);
@@ -13,14 +16,14 @@ const AdminAllusers = () => {
         getAllUsersData()
     }, [userdelete])
     // let allUsersDataList = ""
-    let deleteuser = async(e) => {
+    let deleteuser = async (e) => {
         // console.log(e.target.getAttribute("data-id"));
         let userid = e.target.getAttribute("data-id");
         const response = await axios.delete(`http://localhost:5000/users/${userid}`)
-        .then((response) => { console.log(response); })
+            .then((response) => { console.log(response); })
         setUserDeleteStatus(true)
     }
-    let getAllUsersData = async() => {
+    let getAllUsersData = async () => {
         try {
             // const response = await axios.get(`http://localhost/api/users`)
             // const response = await axios.get(`https://jayramin.000webhostapp.com/allusers`)
@@ -29,8 +32,8 @@ const AdminAllusers = () => {
                     console.log(response);
                     if (response.status == 200) {
                         console.log("server connected", response.data);
-                        let allUsersDataList=""
-                        allUsersDataList =Object.entries(response.data).map(([key,value],i)=>{
+                        let allUsersDataList = ""
+                        allUsersDataList = Object.entries(response.data).map(([key, value], i) => {
                             return <tr key={i}>
                                 <td>{value.username}</td>
                                 <td>{value.password}</td>
@@ -76,8 +79,8 @@ const AdminAllusers = () => {
                     </thead>
                     <tbody>
                         {/* {JSON.stringify(allUsers)} */}
-                        {loader ? allUsers:<tr> <td colSpan={5}>No Record Found...</td> </tr>}
-                        
+                        {loader ? allUsers : <tr> <td colSpan={5}>No Record Found...</td> </tr>}
+
                     </tbody>
                 </table>
             </div>

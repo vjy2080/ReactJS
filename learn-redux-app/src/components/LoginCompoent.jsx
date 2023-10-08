@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import { useState } from 'react';
 import './../LoginRegistration.css';
 import { Link, useNavigate } from 'react-router-dom';
 import CustomHook from './../hooks/customHook';
