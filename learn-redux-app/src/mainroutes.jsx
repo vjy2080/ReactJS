@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage.jsx";
 // import ContactPage from "./pages/ContactPage.jsx";
 // import HeaderComp from "./includes/HeaderComponent.jsx";
 // import LoginCompo from "./components/LoginCompoent.jsx";
-// import AccessStoreData from "./pages/AccessStoreData";
+import AccessStoreData from "./pages/AccessStoreData";
 // const AdminRouter = React.lazy(() => { return import('./admin/AdminRoute.jsx') })
 
 console.log("Called router");
@@ -29,10 +29,12 @@ const MainRouter = createBrowserRouter([
     // }, {
     //     path: "/login",
     //     element: <><LoginCompo /></>,
-    // }, {
-    //     path: "accessapi",
-    //     element: <AccessStoreData />,
-    // }, {
+    // }, 
+    {
+        path: "accessapi",
+        element: <AccessStoreData />,
+    }, 
+    // {
     //     path: "admin/*",
     //     element: <Suspense fallback={<h2>Loading...</h2>}><AdminRouter /></Suspense>,
     // }

@@ -4,7 +4,7 @@ import { selectUser } from "./../reducer/users";
 import { Link } from 'react-router-dom';
 const AccessStoreData = () => {
     const users = useSelector(selectUser);
-    // console.log("called inside access store data",users);
+    console.log("called inside access store data",users);
     return (
         <div>
             <Link to="/">Home</Link>

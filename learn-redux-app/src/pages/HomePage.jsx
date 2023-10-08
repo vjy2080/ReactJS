@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { retierveUsers } from './../actions/users';
 import { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 console.log("called home page");
 const HomePage = () => {
@@ -18,7 +18,7 @@ const HomePage = () => {
     }
     return (
         <>
-            {/* <Link to="accessapi">Access Store Data</Link> */}
+            <Link to="accessapi">Access Store Data</Link>
             welcome
         </>
     );
