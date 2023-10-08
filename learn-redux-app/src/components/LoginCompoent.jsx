@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import CustomHook from './../hooks/customHook';
 // import axios from 'axios';
 import { useCookies } from 'react-cookie';
-import { loginUsers } from './../actions/users';
+// import { loginUsers } from './../actions/users';
 import { useDispatch } from 'react-redux';
 
 const LoginCompoent = () => {
@@ -22,7 +22,7 @@ const LoginCompoent = () => {
   }
   const savedata = async (event) => {
     event.preventDefault();
-    let abc = await dispatch(loginUsers(inp.username,inp.password))
+    // let abc = await dispatch(loginUsers(inp.username,inp.password))
   }
   const registration = (event) => {
     event.preventDefault();

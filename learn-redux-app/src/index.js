@@ -6,7 +6,9 @@ import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import CustomStore from "./CustomStore.jsx";
 import MainRouter from "./mainroutes"
-
+import './custom.css';
+import './admin.css';
+// import 'animate.css';
 
 console.log("Called main Index");
 const root = ReactDOM.createRoot(document.getElementById('root'));
