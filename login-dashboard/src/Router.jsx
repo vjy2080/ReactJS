@@ -3,7 +3,6 @@ import { createHashRouter } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
 import Preferences from './components/Preferences/Preferences';
 import App from './components/App/App';
-import Login from './components/Login/Login';
 
 
 
@@ -11,7 +10,7 @@ const Router = createHashRouter([
 
     {
         path: "/",
-        element: <><App /> <Login /></>,
+        element: <><App /></>,
         children: [
 
             {
