@@ -19,7 +19,7 @@ const MainRouter = createBrowserRouter([
     },
     {
         path: "/about",
-        element: <><HeaderComp /><AboutPage></AboutPage></>,
+        element: <><HeaderComp /><AboutPage /></>,
     },
     {
         path: "/contact",

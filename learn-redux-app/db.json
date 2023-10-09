@@ -24,6 +24,9 @@
       "email": "admin@mail.com",
       "gender": "Male",
       "role_id": 1
+    },
+    {
+      "id": 2
     }
   ]
 }

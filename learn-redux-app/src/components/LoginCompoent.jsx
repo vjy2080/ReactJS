@@ -4,8 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import CustomHook from './../hooks/customHook';
 // import axios from 'axios';
 import { useCookies } from 'react-cookie';
-// import { loginUsers } from './../actions/users';
+import { loginUsers } from './../actions/users';
 import { useDispatch } from 'react-redux';
+import { selectUser } from '../reducer/users';
 
 const LoginCompoent = () => {
   const dispatch = useDispatch()
@@ -17,12 +18,17 @@ const LoginCompoent = () => {
   const [cookies, setCookie] = useCookies([]);
   const [errorMsg, setErrorMsg] = useState(false);
   const [loginMsg, setLoginMsg] = useState("");
+
+
   const toggleForm = () => {
     setActiveClass(!ActiveClass);
   }
   const savedata = async (event) => {
     event.preventDefault();
-    // let abc = await dispatch(loginUsers(inp.username,inp.password))
+    let abc = await dispatch(loginUsers(inp.username, inp.password))
+    console.log(inp.username);
+    console.log(abc);
+    console.log(selectUser.state.user);
   }
   const registration = (event) => {
     event.preventDefault();
@@ -48,7 +54,7 @@ const LoginCompoent = () => {
   return (
     <>
       <section>
-         {errorMsg ? <>Error while connecting please try after osme time</> : <> <div className={ActiveClass ? "container active" : "container"}>
+        {errorMsg ? <>Error while connecting please try after osme time</> : <> <div className={ActiveClass ? "container active" : "container"}>
           <Link className='position-absolute z-index-1 end-0 p-2' to="/"><i className='fa fa-home'></i></Link>
           <div className="user signinBx">
             <div className="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg" alt="" /></div>
@@ -71,14 +77,14 @@ const LoginCompoent = () => {
                     <div className="toast-header">
                       {/* <img src="..." className="rounded me-2" alt="..." /> */}
                       <strong className="me-auto">Login alert</strong>
-                      <button type="button" className="btn-close" onClick={()=>{ setLoginMsg("") }} data-bs-dismiss="toast" aria-label="Close"></button>
+                      <button type="button" className="btn-close" onClick={() => { setLoginMsg("") }} data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>
                     <div className="toast-body text-danger">
                       Invalid User
                     </div>
                   </div>
-                </div>:""}
-                
+                </div> : ""}
+
                 {/* <p className='alert alert-danger'>{loginMsg}</p> */}
               </form>
             </div>
