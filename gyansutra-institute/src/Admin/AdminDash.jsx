@@ -4,7 +4,7 @@ import RecentActivity from './Dashboard/RecentActivity'
 import Charts from './Dashboard/Charts';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
-import SidebarMenu from '../CommonCompo/SideBar/SidebarMenu';
+// import SidebarMenu from '../CommonCompo/SideBar/SidebarMenu';
 import AllUsers from './Dashboard/AllUsers';
 import { ToastContainer, toast } from 'react-toastify';
 

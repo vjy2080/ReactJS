@@ -26,7 +26,6 @@ export default function AllUsers() {
     const handleDelete = async (user) => {
         setDeleteUser(user)
         console.log(user.role_id)
-
         try {
             (user.role_id == 2) ? setDeleteUser(user) : setDeleteUser(null);
             const response = await fetch(`http://localhost:3004/user/${deleteUser.id}`, {
@@ -55,6 +54,7 @@ export default function AllUsers() {
             try {
                 const response = await fetch('http://localhost:3004/user');
                 const data = await response.json();
+
                 setApiData(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
