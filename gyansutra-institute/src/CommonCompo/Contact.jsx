@@ -2,12 +2,13 @@ import React from 'react';
 
 const ContactUs = () => {
   return (
-    <div className="container my-5">
-      <div className="row">
+    <div className="container px-5 py-2">
+      <div className="row ">
         <div className="col">
 
+        <h1 className="text-center text-primary my-3">Contact-Us</h1>
 
-          <h2 className='my-3 text-center text-primary text-decoration-underline'>Contact Us</h2>
+          {/* <h2 className='my-3 text-center text-primary text-decoration-underline'>Contact Us</h2> */}
           <p className='mt-5'>We'd love to hear from you!</p>
           <p className='my-3'>Reach out using the contact information below:</p>
 

@@ -15,7 +15,7 @@ export default function about() {
                                 best educational resources and opportunities.
                             </p>
 
-                            <h2 className='text-primary'>Our Vision</h2>
+                            <h5 className='text-danger text-center text-decoration-underline'>Our Vision</h5>
                             <p>
                                 At GyanSutra Institute, we envision a future where education is not
                                 bound by physical barriers, where students can access high-quality
@@ -24,7 +24,7 @@ export default function about() {
                                 students and educators.
                             </p>
 
-                            <h2  className='text-primary'>Our Mission</h2>
+                            <h5 className='text-danger text-center text-decoration-underline'>Our Mission</h5>
                             <p>
                                 Our mission is to revolutionize the education sector by leveraging
                                 the latest technologies and providing a comprehensive online platform
@@ -33,7 +33,7 @@ export default function about() {
                                 their educational journey efficient and hassle-free.
                             </p>
 
-                            <h2  className='text-primary'>Key Features</h2>
+                            <h5 className='text-danger text-center text-decoration-underline'>Key Features</h5>
                             <ul>
                                 <li>
                                     Online Registration: We offer a user-friendly online registration

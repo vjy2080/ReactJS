@@ -132,7 +132,7 @@ export default function Login() {
           </div>
           <div className='my-2 text-center'>
             <p className='text-danger'>Don't have an account yet ?</p>
-            <Link className='btn btn-dark' to='/signup'>Sign-Up Here</Link>
+            <Link className='btn btn-dark' to='/signup'>Register Here</Link>
           </div>
         </form>
       </div>
