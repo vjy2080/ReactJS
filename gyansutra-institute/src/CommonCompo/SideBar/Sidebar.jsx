@@ -26,7 +26,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                 {/* <i className="bx bxl-audible icon"></i> */}
                 <div className="logo_name mx-auto mt-3 ">
                     {/* GyanSutra */}
-                    <img className='rounded-5' src="./Logo.webp" height={50} alt="profilePic" />
+                    <img className='rounded-5' src="./Logo.webp" height={50} alt="profile image" />
 
                 </div>
                 <i className={`bx ${isSidebarOpen ? 'bx-menu' : 'bx-menu-alt-right'}`} id="btn" onClick={toggleSidebar}></i>

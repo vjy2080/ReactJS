@@ -54,7 +54,7 @@ export default function Login() {
 
         // console.log(userFname);
         const uname = user.fname || 'Unknown';
-        // console.log("Role_id :- ", user.role_id);
+        console.log("Role_id :- ", user.role_id);
         setCookie('Name', uname);
         setCookie('Role', user.role_id);
 
