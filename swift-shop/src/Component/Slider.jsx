@@ -7,7 +7,7 @@ function DarkVariantExample() {
       <Carousel data-bs-theme="light">
         <Carousel.Item>
           <img
-            className="d-block w-100 rounded-5 my-3"
+            className="d-block w-100 rounded my-3"
             src="https://smartslider3.com/wp-content/uploads/slider/cache/5e4d57c781eda4ea9c98927c721cfaf8/fullwidth-product-slider1.webp"
             alt="First slide"
           />
@@ -22,7 +22,7 @@ function DarkVariantExample() {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100 rounded-5 my-3"
+            className="d-block w-100 rounded my-3"
             src="https://smartslider3.com/wp-content/uploads/slider/cache/ee009efd7be8369bd81e31f3d72f7af4/fullwidth-product-slider2.webp"
             alt="Second slide"
           />
@@ -36,7 +36,7 @@ function DarkVariantExample() {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100 rounded-5 my-3"
+            className="d-block w-100 rounded my-3"
             src="https://smartslider3.com/wp-content/uploads/slider/cache/d0e763c5b812ed2912583f230a949512/fullwidth-product-slider3.webp"
             alt="Third slide"
           />

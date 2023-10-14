@@ -2,11 +2,12 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Cart from "./Cart";
 
 function Header() {
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark" >
+      <Navbar bg="dark" data-bs-theme="dark" className="sticky-top" >
         <Container fluid>
           <Navbar.Brand href="/">Swift-Shop</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -16,35 +17,12 @@ function Header() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              {/* <Nav.Link className='text-decoration-none text-dark' to="/">Home </Nav.Link> */}
-              {/* <Nav.Link className='text-decoration-none text-dark' to="/about">About </Nav.Link> */}
-              {/* <Nav.Link className='text-decoration-none text-dark' to="/contact">Contact </Nav.Link> */}
-
-              <Nav.Link>
-                {" "}
-                <Link className="text-decoration-none text-light" to="/">
-                  Home
-                </Link>{" "}
-              </Nav.Link>
-              <Nav.Link>
-                {" "}
-                <Link className="text-decoration-none text-light" to="/product">
-                  Product
-                </Link>{" "}
-              </Nav.Link>
-              <Nav.Link>
-                {" "}
-                <Link className="text-decoration-none text-light" to="/about">
-                  About
-                </Link>{" "}
-              </Nav.Link>
-              <Nav.Link>
-                {" "}
-                <Link className="text-decoration-none text-light" to="/contact">
-                  Contact
-                </Link>{" "}
-              </Nav.Link>
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/product">Product</Nav.Link>
+              <Nav.Link as={Link} to="/about">About</Nav.Link>
+              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
             </Nav>
+            <Cart />
           </Navbar.Collapse>
         </Container>
       </Navbar>

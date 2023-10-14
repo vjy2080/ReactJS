@@ -1,10 +1,6 @@
 import React from 'react';
 import Slider from './Component/Slider.jsx';
-import MainContent from './product.jsx';
-
-
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import MainContent from './Component/product.jsx';
 
 const Home = () => {
     return (
