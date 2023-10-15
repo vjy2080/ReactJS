@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 
 const CustomHook = (intval, initError) => {
@@ -10,9 +9,9 @@ const CustomHook = (intval, initError) => {
         // console.log("called",e.target);
         // console.log(e.target.className);
         setInput((inp) => ({ ...inp, [e.target.name]: e.target.value }))
-        if (e.target.className == "required") {
+        if (e.target.className === "required") {
             console.log("called inside if",e.target.value);
-            if (e.target.value == "") {
+            if (e.target.value === "") {
                 let SpanId = [e.target.name]+"Error";
                 console.log("inside condition",SpanId);
                 setError({ ...errors,[SpanId]: "This field is required" })

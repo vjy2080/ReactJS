@@ -18,8 +18,8 @@ export const registerUsers = (data) => async (dispatch) => {
     // console.log("actions retierveUsers",UserService);
     // const 
     const ResData = await UserService.RegisterUser(data);
-    return ResData
-    console.log("action resdata", ResData);
+    // return ResData
+    // console.log("action resdata", ResData);
     return dispatch({ type: "RETRIVE_LOGIN_USERS", payload: ResData })
     // return dispatch({ type: RETRIVE_ALL_USERS, payload: { "data": "anything" } })
 }
