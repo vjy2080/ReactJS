@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import { RouterProvider } from "react-router-dom";
-import Router from './Router.jsx'
+import { Provider } from 'react-redux';
+import './index.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-// import Testtopage from './Admin/Dashboard/EditUserForm';
-
+import Router from './Router.jsx'
+import CustomStore from './Redux/store/CustomStore'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <Testtopage />
-  <RouterProvider router={Router} />
+  <Provider store={CustomStore}>
+    <RouterProvider router={Router} />
+  </Provider>
 );

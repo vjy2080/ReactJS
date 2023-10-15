@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import Loader from '../CommonCompo/Loader';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { useDispatch } from 'react-redux';
+import { loginUsers } from '../Redux/actions/users';
+import CustomHook from './../hooks/customHook';
+
+
 
 export default function Login() {
   const [loginData, setLoginData] = useState({
@@ -13,6 +17,9 @@ export default function Login() {
   });
   const navigate = useNavigate();
   const [, setCookie] = useCookies(['user']);
+  const dispatch = useDispatch()
+  const {inp} = CustomHook({ role: "2" }, { usernameError: "" });
+
 
   useEffect(() => {
     document.body.style.backgroundColor = "rgb(180, 218, 233)"
@@ -25,34 +32,24 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let abc = await dispatch(loginUsers(inp.username, inp.password))
 
-    try {
-      // Fetch the API data
-      const response = await fetch('http://localhost:3004/user');
-      <Loader />
-      if (!response.ok) {
-        console.error('Failed to fetch data from the API.');
-        return;
-      }
+    let apiData = abc.payload.data
 
-      // Parse the API response into JSON
-      const apiData = await response.json();
-      // console.log('API Data:', apiData);
+    const user = apiData.find(
+          (userData) =>
+            (userData.uname === loginData.uname && userData.pw === loginData.pw) || // Check for direct user data
+            (userData.formValue && userData.formValue.uname === loginData.uname && userData.formValue.pw === loginData.pw && userData.formValue.role_id === "2") // Check for nested user data
+        );
+  
 
-      // Find a user in the API data whose username and password match the entered values
-      const user = apiData.find(
-        (userData) =>
-          (userData.uname === loginData.uname && userData.pw === loginData.pw) || // Check for direct user data
-          (userData.formValue && userData.formValue.uname === loginData.uname && userData.formValue.pw === loginData.pw && userData.formValue.role_id === "2") // Check for nested user data
-      );
-
-      // console.log('Found User:', user);
+      console.log('Found User:', user);
 
       if (user) {
         // Check if user is defined and has fname
-        // const userFname = user.fname || 'Unknown';
+        const userFname = user.fname || 'Unknown';
 
-        // console.log(userFname);
+        console.log(userFname);
         const uname = user.fname || 'Unknown';
         console.log("Role_id :- ", user.role_id);
         setCookie('Name', uname);
@@ -64,15 +61,17 @@ export default function Login() {
 
       } else {
         toast.error("The username or password is incorrect try again.");
-
-        // console.error('User not found or missing data.');
-        // alert("User not found or missing data.");
       }
-    }
-    catch (error) {
-      console.error('An error occurred:', error);
-      alert(`An error occurred: ${error.message}`);
-    }
+
+
+    //     // console.error('User not found or missing data.');
+    //     // alert("User not found or missing data.");
+    //   }
+    // }
+    // catch (error) {
+    //   console.error('An error occurred:', error);
+    //   alert(`An error occurred: ${error.message}`);
+    // }
 
   }
 
