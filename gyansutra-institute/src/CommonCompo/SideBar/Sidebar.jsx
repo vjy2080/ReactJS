@@ -69,21 +69,6 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                     </Link>
                     <span className="tooltip">Contact-Us</span>
                 </li>
-
-                {/* <li>
-                    <Link to="/">
-                        <i className="bx bx-folder"></i>
-                        <span className="link_name">File Manger</span>
-                    </Link>
-                    <span className="tooltip">File Manger</span>
-                </li>
-                <li>
-                    <Link to="/">
-                        <i className="bx bx-cart-alt"></i>
-                        <span className="link_name">Order</span>
-                    </Link>
-                    <span className="tooltip">Order</span>
-                </li> */}
                 <li>
                     <Link to="/login">
                         <i className="bx bx-log-in"></i>
@@ -94,9 +79,9 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                 <li className="profile">
                     <div className="profile_details">
                         {/* <img src="profile.jpeg" alt="profile image" /> */}
-                        <div className="profile_content">
-                            <div className="name">{userName}</div>
-                            <div className="designation">{(Role === 2 ? "User" : (Role === 1) ? "Admin" : "")}</div>
+                        <div className="profile_content text-center w-100">
+                            <div className="pe-5 py-1 name">{userName}</div>
+                            <div className="pe-5 designation">{(Role === 2 ? "User" : (Role === 1) ? "Admin" : "")}</div>
                         </div>
                     </div>
                     <i className="bx bx-log-out" id="log_out" onClick={Logout} ></i>

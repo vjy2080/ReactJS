@@ -18,7 +18,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [, setCookie] = useCookies(['user']);
   const dispatch = useDispatch()
-  const {inp} = CustomHook({ role: "2" }, { usernameError: "" });
+  const { inp } = CustomHook({ role: "2" }, { usernameError: "" });
 
 
   useEffect(() => {
@@ -37,42 +37,28 @@ export default function Login() {
     let apiData = abc.payload.data
 
     const user = apiData.find(
-          (userData) =>
-            (userData.uname === loginData.uname && userData.pw === loginData.pw) || // Check for direct user data
-            (userData.formValue && userData.formValue.uname === loginData.uname && userData.formValue.pw === loginData.pw && userData.formValue.role_id === "2") // Check for nested user data
-        );
-  
+      (userData) =>
+        (userData.uname === loginData.uname && userData.pw === loginData.pw) || // Check for direct user data
+        (userData.formValue && userData.formValue.uname === loginData.uname && userData.formValue.pw === loginData.pw && userData.formValue.role_id === "2") // Check for nested user data
+    );
 
-      console.log('Found User:', user);
+    if (user) {
+      // Check if user is defined and has fname
+      const userFname = user.fname || 'Unknown';
 
-      if (user) {
-        // Check if user is defined and has fname
-        const userFname = user.fname || 'Unknown';
+      console.log(userFname);
+      const uname = user.fname || 'Unknown';
+      console.log("Role_id :- ", user.role_id);
+      setCookie('Name', uname);
+      setCookie('Role', user.role_id);
 
-        console.log(userFname);
-        const uname = user.fname || 'Unknown';
-        console.log("Role_id :- ", user.role_id);
-        setCookie('Name', uname);
-        setCookie('Role', user.role_id);
+      // Redirect to the home page ("/") after a successful login as user or redirect to adminDash if login as admin
+      (user.role_id === "1") ? navigate('/adminDash') : navigate('/');
+      localStorage.setItem('hasDisplayedToast', 'false');
 
-        // Redirect to the home page ("/") after a successful login as user or redirect to adminDash if login as admin
-        (user.role_id === "1") ? navigate('/adminDash') : navigate('/');
-        localStorage.setItem('hasDisplayedToast', 'false');
-
-      } else {
-        toast.error("The username or password is incorrect try again.");
-      }
-
-
-    //     // console.error('User not found or missing data.');
-    //     // alert("User not found or missing data.");
-    //   }
-    // }
-    // catch (error) {
-    //   console.error('An error occurred:', error);
-    //   alert(`An error occurred: ${error.message}`);
-    // }
-
+    } else {
+      toast.error("The username or password is incorrect try again.");
+    }
   }
 
 
