@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { MDBInput, MDBBtn, MDBValidation, MDBValidationItem } from 'mdb-react-ui-kit';
 import AlertBox from './AlertBox';
 import { Link, useNavigate } from 'react-router-dom';
+import { registerUsers ,retierveUsers} from '../Redux/actions/users';
+import { useDispatch } from 'react-redux';
+import CustomHook from './../hooks/customHook';
+
 
 export default function Registration({ onRegistration }) {
     const navigate = useNavigate();
@@ -15,6 +19,10 @@ export default function Registration({ onRegistration }) {
         role_id: '2'
     });
     const [isRegistered, setIsRegistered] = useState(false);
+    const dispatch = useDispatch();
+    const { inp } = CustomHook({ role: "2" }, { usernameError: "" });
+
+
 
     const onChange = (e) => {
         setFormValue({ ...formValue, [e.target.name]: e.target.value });
@@ -32,9 +40,18 @@ export default function Registration({ onRegistration }) {
         });
     };
 
-    const submitData = async () => {
-        const response = await fetch('http://localhost:3004/user');
-        const apiData = await response.json();
+    // ==================================================================
+    const submitData = async (e) => {
+        e.preventDefault();
+        let abc = await dispatch(retierveUsers())
+
+        let apiData = abc.payload.data
+        // ==================================================================
+
+
+        // const submitData = async () => {
+        //     const response = await fetch('http://localhost:3004/user');
+        // apiData = await response.json();
         const newuser = apiData.find(
             (userData) =>
                 userData.uname === formValue.uname
