@@ -1,6 +1,14 @@
 import React from 'react';
-import ImagesInReactJS from './Components/ImagesInReactJS';
+import LoginPage from './Components/LoginPage';
+import SignupPage from './Components/SignupPage';
+import Content from './Components/Content';
 
-const App = () => {return <ImagesInReactJS/>;};
-
-export default App;
+export default function App() {
+    return (
+        <div>
+            <SignupPage />
+            <LoginPage />
+            <Content />
+        </div>
+    );
+}
