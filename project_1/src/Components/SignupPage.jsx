@@ -10,7 +10,7 @@ function SignupPage() {
                     <Form >
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="email" placeholder="Enter Name" />
+                            <Form.Control type="text" placeholder="Enter Name" />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>

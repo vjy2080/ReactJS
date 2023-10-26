@@ -31,7 +31,7 @@ export default function Content() {
             </div>
             <div className="row">
                 <h3 className='text-center'>Photo Gallery</h3>
-                <div className="col">
+                <div className="col text-center">
                     {photos.map(photo => (
                         <div key={photo.id} className="photo-card">
                             <Image className='image' src={photo.url} alt={photo.title} fluid />
