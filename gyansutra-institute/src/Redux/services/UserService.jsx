@@ -2,23 +2,24 @@ import httpanything from "./http-common.jsx";
 
 const getAll = () => {
     console.log("called inside user service");
-    return httpanything.get("users")
+    return httpanything.get("user")
 }
 const getUserLogin = (username, password) => {
     // console.log("called inside user service");
     return httpanything.get(`user?username=${username}&password=${password}`)
 }
-const RegisterUser = (data) => {
+const RegisterUser = async (data) => {
     console.log("called inside RegisterUser", data);
-    return httpanything.post(`user`, data)
+    return await httpanything.post(`user`, data);
+
 }
 // const selectUserByid = () => {
 //     console.log("called inside user service");
-//     return httpanything.patch("users/2")
+//     return httpanything.patch("user/2")
 // }
 // const deleteUserByid = () => {
 //     console.log("called inside user service");
-//     return httpanything.delete("users/2")
+//     return httpanything.delete("user/2")
 // }
 
 const UserService = {

@@ -44,12 +44,6 @@ const Dashboard = () => {
                                 <h1 className='text-center border border-dark mb-0 py-1 bg-secondary'>Admin Dashboard</h1>
                             </header>
                             <AllUsers />
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col">
-                                    </div>
-                                </div>
-                            </div>
                             <div className=" border bg-warning p-2 border border-dark">
                                 <div className="row d-flex">
                                     <div className="col-md-1">

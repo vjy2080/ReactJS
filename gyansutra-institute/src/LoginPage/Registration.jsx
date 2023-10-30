@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { MDBInput, MDBBtn, MDBValidation, MDBValidationItem } from 'mdb-react-ui-kit';
 import AlertBox from './AlertBox';
 import { Link, useNavigate } from 'react-router-dom';
-import { registerUsers ,retierveUsers} from '../Redux/actions/users';
+import { registerUsers, retierveUsers } from '../Redux/actions/users';
 import { useDispatch } from 'react-redux';
 import CustomHook from './../hooks/customHook';
 
 
 export default function Registration({ onRegistration }) {
     const navigate = useNavigate();
-    const [formValue, setFormValue] = useState({
+    const initFormValue = {
         fname: '',
         lname: '',
         uname: '',
@@ -17,7 +17,8 @@ export default function Registration({ onRegistration }) {
         city: '',
         zip: '',
         role_id: '2'
-    });
+    }
+    const [formValue, setFormValue] = useState(initFormValue);
     const [isRegistered, setIsRegistered] = useState(false);
     const dispatch = useDispatch();
     const { inp } = CustomHook({ role: "2" }, { usernameError: "" });
@@ -29,29 +30,16 @@ export default function Registration({ onRegistration }) {
     };
 
     const resetForm = () => {
-        setFormValue({
-            fname: '',
-            lname: '',
-            uname: '',
-            pw: '',
-            city: '',
-            zip: '',
-            role_id: '2'
-        });
+        setFormValue(initFormValue);
     };
 
     // ==================================================================
     const submitData = async (e) => {
         e.preventDefault();
         let abc = await dispatch(retierveUsers())
-
         let apiData = abc.payload.data
         // ==================================================================
 
-
-        // const submitData = async () => {
-        //     const response = await fetch('http://localhost:3004/user');
-        // apiData = await response.json();
         const newuser = apiData.find(
             (userData) =>
                 userData.uname === formValue.uname
@@ -59,27 +47,46 @@ export default function Registration({ onRegistration }) {
 
         if (!newuser) {
             try {
-                const response = await fetch('http://localhost:3004/user', {
-                    method: 'post',
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                    body: JSON.stringify(formValue),
-                });
+                const response = dispatch(registerUsers(formValue));
+                console.log(formValue);
+                // console.log("response", response);
+                // console.log("data", data);
+                setIsRegistered(true);
 
-                if (response.ok) {
-                    setIsRegistered(true);
-                    // onRegistration(newuser.uname);
-
-                    if (newuser) {
-                        onRegistration(newuser.uname);
-                    }
+                // if (response.ok) {
+                //     console.log("setIsRegistered(true)", isRegistered);
+                if (newuser) {
+                    onRegistration(newuser.uname);
                 }
-                else {
-                    console.error('Registration failed.');
-                }
+                // }
+                // else {
+                //     console.log("setIsRegistered(false)", isRegistered);
+                //     console.error('Registration failed.');
+                //     console.error('Error message:', response.error);  // Provide more details about the error   
+                // }
+            }
+            //  {
+            //     const response = await fetch('http://localhost:3004/user', {
+            //         method: 'post',
+            //         headers: {
+            //             'Content-type': 'application/json; charset=UTF-8',
+            //         },
+            //         body: JSON.stringify(formValue),
+            //     });
 
-            } catch (error) {
+            //     if (response.ok) {
+            //         setIsRegistered(true);
+            //         // onRegistration(newuser.uname);
+
+            //         if (newuser) {
+            //             onRegistration(newuser.uname);
+            //         }
+            //     }
+            //     else {
+            //         console.error('Registration failed.');
+            //     }
+            // }
+            catch (error) {
                 console.error('An error occurred:', error);
                 console.error('Error response:', error.response); // Log the error response
             }

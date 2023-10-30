@@ -10,5 +10,5 @@ let store = createStore(
     initialState,
     composeWithDevTools(applyMiddleware(...middleware))
 )
-console.log(middleware);
+// console.log(middleware);
 export default store

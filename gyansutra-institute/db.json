@@ -24,14 +24,14 @@
       "lname": "Prajapati",
       "uname": "vjy2080@gmail.com",
       "pw": "vjy",
-      "city": "Vavol, Gandhinagar ",
-      "zip": "382016",
+      "city": "Vavol, Gandhinagar",
+      "zip": "382017",
       "role_id": "2",
       "id": 2
     },
     {
       "fname": "Bhavna",
-      "lname": "Prajapati",
+      "lname": "PRAJAPATI",
       "uname": "bvp2080@gmail.com",
       "pw": "bvp",
       "city": "Vavol, Gandhinagar ",
@@ -41,7 +41,7 @@
     },
     {
       "fname": "Krishika",
-      "lname": "Prajapati",
+      "lname": "PRAJAPATI",
       "uname": "kvp2080@gmail.com",
       "pw": "kvp",
       "city": "Vavol, Gandhinagar ",
@@ -50,7 +50,44 @@
       "id": 4
     },
     {
+      "fname": "nilam",
+      "lname": "PRAJAPATI",
+      "uname": "nyp2080@gmail.com",
+      "pw": "nyp",
+      "city": "Vavol, Gandhinagar ",
+      "zip": "382016",
+      "role_id": "2",
       "id": 5
+    },
+    {
+      "fname": "nilama",
+      "lname": "PRAJAPATI",
+      "uname": "nyp2080@gmail.coma",
+      "pw": "nyp",
+      "city": "Vavol, Gandhinagar ",
+      "zip": "382016",
+      "role_id": "2",
+      "id": 6
+    },
+    {
+      "fname": "nilamab",
+      "lname": "PRAJAPATI",
+      "uname": "nyp2080@gmail.comab",
+      "pw": "nyp",
+      "city": "Vavol, Gandhinagar ",
+      "zip": "382016",
+      "role_id": "2",
+      "id": 7
+    },
+    {
+      "fname": "VIJAYKUMARdsf",
+      "lname": "ssadas",
+      "uname": "asda@dfsf",
+      "pw": "sdfsf",
+      "city": "Vavol, Gandhinagar ",
+      "zip": "382016",
+      "role_id": "2",
+      "id": 8
     }
   ]
 }

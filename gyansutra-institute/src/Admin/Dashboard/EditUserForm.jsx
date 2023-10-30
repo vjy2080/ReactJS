@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 function EditUserForm({ showModal, handleCloseModal, user }) {
     const [editedUser, setEditedUser] = useState(user);
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
+    const handleInputChange = (user) => {
+        // console.log("Log e", e);
+        const { name, value } = user.target;
         setEditedUser((prev) => ({
             ...prev,
             [name]: value,
@@ -17,7 +18,9 @@ function EditUserForm({ showModal, handleCloseModal, user }) {
         setShowPassword(!showPassword);
     };
 
+
     const handleSaveChanges = async () => {
+        console.log("Called update");
         try {
             const response = await fetch(`http://localhost:3004/user/${editedUser.id}`, {
                 method: 'PUT',
@@ -34,6 +37,7 @@ function EditUserForm({ showModal, handleCloseModal, user }) {
             }
 
             handleCloseModal();
+
         } catch (error) {
             console.error('Error updating user:', error);
         }
@@ -77,16 +81,6 @@ function EditUserForm({ showModal, handleCloseModal, user }) {
                         />
                     </Form.Group>
 
-                    {/* <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            type="password"
-                            name="pw"
-                            value={editedUser.pw || ''}
-                            onChange={handleInputChange}
-                        />
-                    </Form.Group> */}
-
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <div className="password-input-container d-flex align-items-center">
@@ -128,7 +122,7 @@ function EditUserForm({ showModal, handleCloseModal, user }) {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                
+
                 <Button variant="primary" onClick={handleSaveChanges}>
                     Save Changes
                 </Button>

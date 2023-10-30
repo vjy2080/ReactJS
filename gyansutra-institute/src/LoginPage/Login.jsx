@@ -35,15 +35,16 @@ export default function Login() {
     let abc = await dispatch(loginUsers(inp.username, inp.password))
 
     let apiData = abc.payload.data
-
     const user = apiData.find(
       (userData) =>
         (userData.uname === loginData.uname && userData.pw === loginData.pw) || // Check for direct user data
         (userData.formValue && userData.formValue.uname === loginData.uname && userData.formValue.pw === loginData.pw && userData.formValue.role_id === "2") // Check for nested user data
     );
 
+
     if (user) {
       // Check if user is defined and has fname
+      console.log(user);
       const userFname = user.fname || 'Unknown';
 
       console.log(userFname);

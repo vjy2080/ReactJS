@@ -13,17 +13,20 @@ export default function AllUsers() {
         setShowModal(true);
     };
 
-    const handleCloseModal = () => {
+    const handleCloseModal = (user) => {
         setShowModal(false);
+        setSelectedUser(user);
     };
 
     const updateUserData = (user) => {
         console.log('Edit called');
-        setSelectedUser(user);
+        // setSelectedUser(user);
+        // console.log(selectedUser);
         handleOpenModal();
     };
 
     const handleDelete = async (user) => {
+        console.log("called delete");
         setDeleteUser(user)
         console.log(user.role_id)
 
@@ -49,20 +52,23 @@ export default function AllUsers() {
         }
     };
 
-
+    console.log("apiData", apiData.length);
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('http://localhost:3004/user');
-                const data = await response.json();
-                setApiData(data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        fetchData();
+        if (apiData.length === 0) {
+            const fetchData = async () => {
+                console.log("fetchData");
+                try {
+                    const response = await fetch('http://localhost:3004/user');
+                    const data = await response.json();
+                    setApiData(data);
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+            };
+            fetchData()
+        }
     }, [updateUserData, handleDelete]);
+
     const allUsersList = apiData.map((val, key) => (
         (key > 0) ? (
             <tr key={val.id}>
