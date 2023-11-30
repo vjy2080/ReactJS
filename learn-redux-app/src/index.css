@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+}
+
+.col {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100vh;
+}
+
+input {
+    margin: 1rem;
+    text-align: center;
+    width: 50px;
+    height: 30px;
+    font-size: x-large;
+}
+
+button {
+    background-color: greenyellow;
+    padding: 5px;
+
+}
