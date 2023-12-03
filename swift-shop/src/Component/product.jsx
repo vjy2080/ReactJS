@@ -22,6 +22,7 @@ const ProductPage = () => {
     fetchProducts();
   }, []);
 
+
   return (
     <div>
       <Container className='my-3'>
