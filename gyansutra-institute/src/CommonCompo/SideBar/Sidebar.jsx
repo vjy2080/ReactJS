@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-// import LogoImg from ''
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     const navigate = useNavigate();
@@ -26,7 +25,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                 {/* <i className="bx bxl-audible icon"></i> */}
                 <div className="logo_name mx-auto mt-3 ">
                     {/* GyanSutra */}
-                    <img className='rounded-5' src="./Logo.webp" height={50} alt="profile image" />
+                    <img className='rounded-5' src="./Logo.webp" height={50} alt="logoIMG" />
 
                 </div>
                 <i className={`bx ${isSidebarOpen ? 'bx-menu' : 'bx-menu-alt-right'}`} id="btn" onClick={toggleSidebar}></i>

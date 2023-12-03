@@ -117,8 +117,12 @@ export default function Login() {
             </button>
           </div>
           <div className='my-2 text-center'>
+            <p className='text-danger'>Note:- Use this for access Admin Panel "uname": "admin@example.com",
+      "pw": "admin" </p>
             <p className='text-danger'>Don't have an account yet ?</p>
             <Link className='btn btn-dark' to='/signup'>Register Here</Link>
+            <p className='mt-3 text-danger'>Note:- For use adminDash must login as admin</p>
+            <p>ID - admin@example.com , PW - admin</p>
           </div>
         </form>
       </div>
