@@ -1,0 +1,34 @@
+{
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "posts": [
+    {
+      "title": "addjsldkj5",
+      "description": "lkjsdlkjflsd5",
+      "id": "e66f"
+    },
+    {
+      "id": "1a20",
+      "title": "sjdkh",
+      "description": "kjsahak"
+    },
+    {
+      "id": "6161",
+      "title": "sjkdh",
+      "description": "sjdkj"
+    }
+  ]
+}
