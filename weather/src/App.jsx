@@ -7,6 +7,8 @@ const api = {
   base: "https://api.openweathermap.org/data/2.5/"
 }
 
+
+
 function App() {
   // Initialize state variables
   const [search, setSearch] = useState("");

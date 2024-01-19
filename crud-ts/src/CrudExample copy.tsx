@@ -3,19 +3,26 @@ import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 
 const CrudExample = () => {
 
+    type dataArrayProps = {
+        title: string,
+        description: string,
+        id: string
+    }
+
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
     const [isUpdate, setIsUpdate] = useState(false);
-    const [data, setData] = useState([]);
-    const [updateId, setUpdateId] = useState();
-    const baseUrl = "http://localhost:3004/posts"
+    const [data, setData] = useState<dataArrayProps[]>([]);
+    const [updateId, setUpdateId] = useState('');
+    const baseUrl: string = "http://localhost:3004/posts"
+
     useEffect(() => {
         fetchData();
     }, []);
 
     const fetchData = async () => {
         try {
-            const response = await fetch(baseUrl);
+            const response :Response = await fetch(baseUrl);
             const jsonData = await response.json();
             setData(jsonData);
         } catch (error) {
@@ -51,17 +58,23 @@ const CrudExample = () => {
         }
     };
 
-    const updateHandle = (id) => {
+    // type selectedItemProps = {
+
+    // }
+
+    const updateHandle = (id:string) => {
         console.log(id);
-        const selectedItem = data.find((item) => item.id === id);
+        const selectedItem: dataArrayProps | undefined = data.find((item) => item.id === id);
         console.log(selectedItem);
-        setTitle(selectedItem.title);
-        setDesc(selectedItem.description);
-        setUpdateId(id)
-        setIsUpdate(true);
+        if (selectedItem !== undefined) {
+            setTitle(selectedItem.title);
+            setDesc(selectedItem.description);
+            setUpdateId(id)
+            setIsUpdate(true);
+        }
     };
 
-    const updateDataHandle = async () => {
+    const updateDataHandle  = async (): Promise<void> => {
         console.log(title, desc);
         console.log('updateId', updateId);
 
@@ -91,7 +104,7 @@ const CrudExample = () => {
         }
     };
 
-    const deleteHandle = async (id) => {
+    const deleteHandle = async (id:string) : Promise<void> => {
 
         console.log(id);
         console.log(data);

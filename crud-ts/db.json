@@ -14,21 +14,5 @@
   "profile": {
     "name": "typicode"
   },
-  "posts": [
-    {
-      "title": "addjsldkj5",
-      "description": "lkjsdlkjflsd5",
-      "id": "e66f"
-    },
-    {
-      "id": "1a20",
-      "title": "sjdkh",
-      "description": "kjsahak"
-    },
-    {
-      "id": "6161",
-      "title": "sjkdh",
-      "description": "sjdkj"
-    }
-  ]
+  "posts": []
 }
