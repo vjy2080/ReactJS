@@ -12,25 +12,9 @@ const CrudExample = () => {
     const baseUrl = "http://localhost:3004/posts"
 
 
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
-
-    // const fetchData = async () => {
-    //     try {
-    //         const response = await fetch(baseUrl);
-    //         const jsonData = await response.json();
-    //         setData(jsonData);
-    //     } catch (error) {
-    //         console.error('Error fetching data:', error);
-    //     }
-    // };
-
-
     const { data,refetch } = useHandleApi();
 
     const addHandle = async () => {
-        // console.log("called - addHandle");
 
         if (title && desc) {
             try {
@@ -160,7 +144,7 @@ const CrudExample = () => {
                             {isUpdate ? (
                                 <button onClick={() => updateDataHandle()}>Update</button>
                             ) : (
-                                <button onClick={() => addHandle()}>Add</button>
+                                <button onClick={() => addHandle(title,desc)}>Add</button>
                             )}
                         </td>
                     </tr>
