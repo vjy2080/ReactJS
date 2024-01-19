@@ -1,7 +1,9 @@
+import { useQuery } from "@tanstack/react-query";
+
 
 const baseUrl = "http://localhost:3004/posts"
 
-export const handleApi = async () => {
+export const fetchData = async () => {
     const response = await fetch(baseUrl)
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -9,3 +11,10 @@ export const handleApi = async () => {
     const data = await response.json();
     return data;
 }
+
+export const useHandleApi = () => {
+    return useQuery({
+        queryKey: ['fetchData'],
+        queryFn: fetchData,
+    });
+};

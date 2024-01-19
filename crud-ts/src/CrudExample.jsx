@@ -1,30 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
-
+import { useHandleApi } from './ReactQuery';
 const CrudExample = () => {
 
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
     const [isUpdate, setIsUpdate] = useState(false);
-    const [data, setData] = useState([]);
+
+    // const [data, setData] = useState([]);
     const [updateId, setUpdateId] = useState();
     const baseUrl = "http://localhost:3004/posts"
-    useEffect(() => {
-        fetchData();
-    }, []);
 
-    const fetchData = async () => {
-        try {
-            const response = await fetch(baseUrl);
-            const jsonData = await response.json();
-            setData(jsonData);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
+
+    // useEffect(() => {
+    //     fetchData();
+    // }, []);
+
+    // const fetchData = async () => {
+    //     try {
+    //         const response = await fetch(baseUrl);
+    //         const jsonData = await response.json();
+    //         setData(jsonData);
+    //     } catch (error) {
+    //         console.error('Error fetching data:', error);
+    //     }
+    // };
+
+
+    const { data,refetch } = useHandleApi();
 
     const addHandle = async () => {
-        console.log();
+        // console.log("called - addHandle");
 
         if (title && desc) {
             try {
@@ -39,7 +45,8 @@ const CrudExample = () => {
                     }),
                 });
                 if (response.ok) {
-                    fetchData();
+                    // fetchData();
+                    refetch();
                     setTitle('');
                     setDesc('');
                 } else {
@@ -53,6 +60,8 @@ const CrudExample = () => {
 
     const updateHandle = (id) => {
         console.log(id);
+        // console.log("called - updateHandle");
+
         const selectedItem = data.find((item) => item.id === id);
         console.log(selectedItem);
         setTitle(selectedItem.title);
@@ -62,6 +71,8 @@ const CrudExample = () => {
     };
 
     const updateDataHandle = async () => {
+        // console.log("called - updateDataHandle");
+
         console.log(title, desc);
         console.log('updateId', updateId);
 
@@ -76,7 +87,8 @@ const CrudExample = () => {
                 });
 
                 if (response.ok) {
-                    fetchData();
+                    // fetchData();
+                    refetch();
                     setTitle('');
                     setDesc('');
                     console.log('Data Updated');
@@ -93,6 +105,7 @@ const CrudExample = () => {
 
     const deleteHandle = async (id) => {
 
+        // console.log("called - deleteHandle");
         console.log(id);
         console.log(data);
 
@@ -104,7 +117,8 @@ const CrudExample = () => {
             // console.log(response.json)
 
             if (response.ok) {
-                fetchData();
+                // fetchData();
+                refetch();
             } else {
                 console.error('Failed to delete data');
             }
@@ -150,7 +164,7 @@ const CrudExample = () => {
                             )}
                         </td>
                     </tr>
-                    {data.map((item, index) => (
+                    {data?.map((item, index) => (
                         <tr key={index}>
                             <td>{item.title}</td>
                             <td>{item.description}</td>
